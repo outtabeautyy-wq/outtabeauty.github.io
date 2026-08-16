@@ -5,253 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
     <style>
-        body {
-            background-color: #0c0914;
-            color: #f4f3f7;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
+        body { 
+            background-color: #0c0914; 
+            color: #f4f3f7; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.5; 
+            text-align: center;
         }
-        /* Top Navigation Tabs - 2 Tab Framework Only */
+
+        /* Top Navigation Tabs Frame */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
             background: #000000;
             border-bottom: 2px solid #ff007f;
             padding: 12px 0;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-align: center;
         }
         .nav-tab {
             color: #8a8894;
             text-decoration: none;
             flex: 1;
             cursor: pointer;
+            transition: 0.3s;
         }
         .nav-tab.active {
             color: #ff007f;
-            border-bottom: 2px solid #ff007f;
-            margin-bottom: -14px;
-            padding-bottom: 12px;
         }
-        .container {
-            max-width: 600px;
-            margin: 20px auto 100px auto;
-            padding: 0 15px;
-            position: relative;
-        }
-        /* Custom Glowing Pink Speaker Button */
-        .music-control {
-            position: fixed;
-            bottom: 30px;
-            right: 25px;
-            background: #ff007f;
-            border: 2px solid #ffffff;
+        .nav-tab:hover {
             color: #ffffff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+        }
+
+        /* Cover Layout Photo Frame */
+        .cover-photo {
+            width: 100%;
+            height: 55vh;
+            background: linear-gradient(rgba(12, 9, 20, 0.4), rgba(12, 9, 20, 0.4)), url('Original 2.PNG') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.8), inset 0 0 5px rgba(255, 255, 255, 0.4);
-            transition: all 0.2s ease;
-        }
-        /* Main Image Container */
-        .main-design-image {
-            width: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 25px;
-        }
-        .main-design-image img {
-            width: 100%;
-            display: block;
-            height: auto;
-        }
-        /* Dynamic Image Slideshow Container with Pink Glow Border */
-        .slideshow-container {
-            width: 100%;
-            position: relative;
-            margin-bottom: 25px;
-            border: 2px solid #ff007f;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #140f22;
-            box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
-        }
-        .mySlides {
-            display: none;
-            position: relative;
-        }
-        .mySlides img {
-            width: 100%;
-            height: 440px;
-            object-fit: cover;
-            display: block;
-        }
-        .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffffff;
-            padding: 12px;
-            text-align: center;
-            font-size: 0.9rem;
-            border-top: 1px solid #ff007f;
+            font-size: 2.5rem;
             font-weight: bold;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        /* Style Boxes with Left Pink Accent Borders */
-        .service-card {
-            background: #140f22;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-left: 4px solid #ff007f;
+
+        /* Luxury Audio Container */
+        .music-section { 
+            margin: 40px auto; 
+            max-width: 450px; 
+            padding: 20px; 
+            background: #14111f; 
+            border-radius: 16px; 
+            border: 1px solid #ff007f;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
         }
-        .service-card h2 {
-            color: #ff007f;
-            font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 10px;
+        .music-section h3 { margin: 0 0 10px 0; font-size: 1rem; color: #ff007f; letter-spacing: 1px; }
+        audio { width: 100%; margin-top: 5px; }
+
+        /* Modern Automatic Slideshow Layout */
+        .slider { 
+            max-width: 750px; 
+            position: relative; 
+            margin: 40px auto; 
+            overflow: hidden; 
+            border-radius: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
         }
-        .service-card p {
-            color: #bcbbfa;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-        .payment-list {
-            margin: 15px 0 0 0;
-            padding-left: 20px;
-            color: #bcbbfa;
-            font-size: 0.9rem;
-        }
-        .payment-list li {
-            margin-bottom: 8px;
-        }
-        /* EMBEDDED SQUARE CALENDAR MODULE FRAME */
-        .calendar-embed-frame {
-            width: 100%;
-            height: 650px;
-            border: 2px solid #ff007f;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #ffffff;
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
-            margin-top: 25px;
-        }
-        .calendar-embed-frame iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        /* Page Switches */
-        .tab-content {
-            display: none;
-        }
-        .tab-content.show {
-            display: block;
+        .slides { display: flex; width: 400%; animation: slide-animation 16s infinite; }
+        .slides img { width: 100%; height: 480px; object-fit: cover; }
+        
+        @keyframes slide-animation {
+            0% { transform: translateX(0%); }
+            25% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            100% { transform: translateX(0%); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Music Audio Player Linked to Drake Track -->
-    <audio id="bg-music" src="Drake Sweeterman Explicit.mp3" loop prefetch></audio>
-    <div id="music-btn" class="music-control" onclick="toggleMusic()">🔇</div>
-
-    <!-- Navigation Tabs - Clean 2-Tab Framework -->
+    <!-- Top Navigation Menu Framework -->
     <div class="nav-tabs">
-        <div id="tab-gallery" class="nav-tab active" onclick="switchTab('gallery')">1. GALLERY<br>VIEW</div>
-        <div id="tab-book" class="nav-tab" onclick="switchTab('book')">2. BOOK &amp;<br>PAYMENT</div>
+        <a href="index.html" class="nav-tab active">Home Lounge</a>
+        <a href="calendar.html" class="nav-tab">Live Booking</a>
     </div>
 
-    <!-- MAIN INTERACTIVE CONTAINER -->
-    <div class="container" onclick="startMusicOnFirstClick()">
+    <!-- Main Dynamic Layout Banner Cover Image -->
+    <div class="cover-photo">
+        OUTTA BEAUTY
+    </div>
 
-        <!-- ==================== TAB 1: GALLERY VIEW ==================== -->
-        <div id="gallery-page" class="tab-content show">
-            <!-- STATIC MAIN COVERS GRAPHIC IMAGE -->
-            <div class="main-design-image">
-                <img src="1785597649850.png" alt="Outta Beauty Main Cover Layout">
-            </div>
+    <!-- Custom Luxury Music Section Widget Player -->
+    <div class="music-section">
+        <h3>NOW PLAYING</h3>
+        <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #8a8894;">Drake — Sweeterman</p>
+        <audio controls>
+            <source src="Drake Sweeterman Explicit.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
-            <!-- THE ROTATING MASTER IMAGE SLIDESHOW -->
-            <div class="slideshow-container">
-                <!-- SLIDE 1: PORTRAIT PHOTO OF HER -->
-                <div class="mySlides">
-                    <img src="sister.jpg" onerror="this.src='sister.png'; this.onerror=function(){this.src='sister.jpeg'};" alt="Meet Your Lead Stylist">
-                    <div class="slide-caption">✨ Meet Your Lead Artist &amp; Master Stylist ✨</div>
-                </div>
-                <!-- SLIDE 2: THE $40 PROMO DEAL FLYER -->
-                <div class="mySlides">
-                    <img src="promo-deal.jpg" onerror="this.src='promo-deal.png'; this.onerror=function(){this.src='promo-deal.jpeg'};" alt="Special Deal Promo">
-                    <div class="slide-caption">🔥 Limited Time $40 Booking Promo Special! 🔥</div>
-                </div>
-                <!-- SLIDE 3: SMOKY NEON HEART GRAPHIC WITH FRAMED EYES -->
-                <div class="mySlides">
-                    <img src="neon-smoke.jpg" onerror="this.src='neon-smoke.png'; this.onerror=function(){this.src='neon-smoke.jpeg'};" alt="Smoky Neon Art">
-                    <div class="slide-caption">👁️ Premier Lash &amp; Eyebrow Aesthetics 👁️</div>
-                </div>
-                <!-- SLIDE 4: THE NEON POLICY/GUIDELINES IMAGE -->
-                <div class="mySlides">
-                    <img src="policy.jpg" onerror="this.src='policy.png'; this.onerror=function(){this.src='policy.jpeg'};" alt="Studio Balance Policy">
-                    <div class="slide-caption">💳 Important Payment &amp; Remainder Rules 💳</div>
-                </div>
-                <!-- SLIDE 5: THE STANDALONE GLOWING LOGO EMBLEM -->
-                <div class="mySlides">
-                    <img src="Original 2.PNG" alt="Outta Beauty Core Neon Emblem">
-                    <div class="slide-caption">💖 Luxury Salon Lounge Ambiance 💖</div>
-                </div>
-            </div>
-
-            <!-- DETAILS BAR CONTENT CARD -->
-            <div class="service-card">
-                <h2>THE LUXURY BAR EXPERIENCE INCLUDED 🍸</h2>
-                <p style="color: #bcbbfa; font-size: 0.9rem; margin: 0;">Outta Beauty reimagines salon treatments by introducing an integrated social lounge. Relax in our premium studio environment while receiving world-class beauty services, complemented by a fully curated beverage bar layout.</p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; font-size: 0.8rem;">
-                    <div>🥂 <strong>One Complimentary Custom Cocktail, Wine, or Soft Drink</strong></div>
-                    <div>🛋️ <strong>Premium High-End Lounge Reclining Seating &amp; Neo Ambiance</strong></div>
-                </div>
-            </div>
+    <!-- Main Visual Presentation Slideshow Frame -->
+    <div class="slider">
+        <div class="slides">
+            <img src="1785597649850.png" alt="Lounge Showcase 1">
+            <img src="1785676750442.jpg" alt="Lounge Showcase 2">
+            <img src="1785682282322.jpg" alt="Lounge Showcase 3">
+            <img src="1785703852626.png" alt="Lounge Showcase 4">
         </div>
+    </div>
 
-        <!-- ==================== TAB 2: BOOK & PAYMENT ==================== -->
-        <div id="book-page" class="tab-content">
-            <!-- LOGO HEADER DECOR -->
-            <div class="main-design-image" style="text-align: center; background: transparent; max-width: 280px; margin: 0 auto 25px auto;">
-                <img src="Original 2.PNG" alt="Outta Beauty Neon Design Logo">
-            </div>
-
-            <div class="service-card">
-                <h2>Cluster Lashes</h2>
-                <p>Premium volume cluster layouts with lightweight synthetic fibers for instant high-glamour eye drama.</p>
-            </div>
-
-            <div class="service-card">
-                <h2>Henna Brows</h2>
-                <p>Meticulous mapping contours combined with premium natural-based henna shading for a bold, structural shadow effect.</p>
-            </div>
-
-            <div class="service-card">
-                <h2>Brow Tinting</h2>
-                <p>Classic specialized tint shading to safely darken, define, and enhance your natural eyebrow hairs.</p>
-            </div>
-
-            <div class="service-card">
-                <h2>Brow Waxing</h2>
-                <p>Gentle smooth warm wax sculpting to create clean, custom tailored geometric arches.</p>
-            </div>
-
-            <!-- EMBEDDED SUMMARY POLICIES -->
-            <div class="service-card">
+</body>
+</html>
