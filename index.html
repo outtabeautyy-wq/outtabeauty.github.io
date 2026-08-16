@@ -40,8 +40,28 @@
         }
         .container {
             max-width: 600px;
-            margin: 20px auto;
+            margin: 20px auto 60px auto;
             padding: 0 15px;
+            position: relative;
+        }
+        /* Music Control Floating Button */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #000000;
+            border: 2px solid #ff007f;
+            color: #ff007f;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
         }
         /* Main Image Container */
         .main-design-image {
@@ -55,28 +75,39 @@
             display: block;
             height: auto;
         }
-        /* The Luxury Bar Lounge Box Setup */
-        .experience-card {
-            background: #140f22;
-            border-radius: 16px;
-            padding: 25px;
+        /* Slideshow Layout */
+        .slideshow-container {
+            width: 100%;
+            position: relative;
             margin-bottom: 25px;
-            border-left: 4px solid #ff007f;
+            border: 1px solid #ff007f;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #140f22;
         }
-        .experience-card h2 {
-            color: #ff007f;
-            font-size: 1.25rem;
-            margin-top: 0;
-            margin-bottom: 12px;
+        .mySlides {
+            display: none;
+            position: relative;
         }
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
-            font-size: 0.8rem;
+        .mySlides img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
         }
-        /* Booking Service Layouts */
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.75);
+            color: #ffffff;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #ff007f;
+        }
+        /* Style Boxes with Left Pink Accent Borders */
         .service-card {
             background: #140f22;
             border-radius: 16px;
@@ -95,6 +126,15 @@
             font-size: 0.9rem;
             margin-bottom: 20px;
         }
+        .payment-list {
+            margin: 15px 0 0 0;
+            padding-left: 20px;
+            color: #bcbbfa;
+            font-size: 0.9rem;
+        }
+        .payment-list li {
+            margin-bottom: 8px;
+        }
         .btn {
             display: inline-block;
             background-color: #ff007f;
@@ -108,6 +148,7 @@
             letter-spacing: 1px;
             border: none;
             text-align: center;
+            cursor: pointer;
         }
         /* Page Switches */
         .tab-content {
@@ -120,26 +161,41 @@
 </head>
 <body>
 
+    <!-- Background Music Player (Hidden) -->
+    <audio id="bg-music" src="outtabeauty/background-music.mp3" loop></audio>
+    <div id="music-btn" class="music-control" onclick="toggleMusic()">🔇</div>
+
     <!-- Tabs at the Top -->
     <div class="nav-tabs">
         <div id="tab-gallery" class="nav-tab active" onclick="switchTab('gallery')">1. GALLERY<br>VIEW</div>
         <div id="tab-book" class="nav-tab" onclick="switchTab('book')">2. BOOK<br>TREATMENTS</div>
-        <div id="tab-payment" class="nav-tab" onclick="switchTab('payment')">3. CONTACT &amp;<br>SETUP</div>
+        <div id="tab-payment" class="nav-tab" onclick="switchTab('payment')">3. CONTACT &amp;<br>PAYMENT</div>
     </div>
 
-    <div class="container">
+    <div class="container" onclick="startMusicOnFirstClick()">
 
         <!-- ==================== TAB 1: GALLERY VIEW ==================== -->
         <div id="gallery-page" class="tab-content show">
-            <!-- THIS PROPERLY LOADS YOUR ORIGINAL 4-PANEL LAYOUT FILE -->
             <div class="main-design-image">
-                <img src="1785597649850.png" alt="Outta Beauty Intro Gallery">
+                <img src="outtabeauty/1785597649850.png" alt="Outta Beauty Intro Gallery">
             </div>
 
-            <div class="experience-card">
+            <!-- THE NEW IMAGE SLIDESHOW BLOCK -->
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="outtabeauty/sister.jpg" onerror="this.src='outtabeauty/sister.png';" alt="Meet Your Artist">
+                    <div class="slide-caption">✨ Meet Your Lead Artist ✨</div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="outtabeauty/deal.jpg" onerror="this.src='outtabeauty/deal.png';" alt="Current Special Deal">
+                    <div class="slide-caption">🔥 Exclusive Luxury Lounge Special Deal 🔥</div>
+                </div>
+            </div>
+
+            <div class="service-card">
                 <h2>THE LUXURY BAR EXPERIENCE INCLUDED 🍸</h2>
                 <p style="color: #bcbbfa; font-size: 0.9rem; margin: 0;">Outta Beauty reimagines salon treatments by introducing an integrated social lounge. Relax in our premium studio environment while receiving world-class beauty services, complemented by a fully curated beverage bar layout.</p>
-                <div class="features-grid">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; font-size: 0.8rem;">
                     <div>🥂 <strong>One Complimentary Custom Cocktail, Wine, or Soft Drink</strong></div>
                     <div>🛋️ <strong>Premium High-End Lounge Reclining Seating &amp; Neo Ambiance</strong></div>
                 </div>
@@ -148,9 +204,8 @@
 
         <!-- ==================== TAB 2: BOOK TREATMENTS ==================== -->
         <div id="book-page" class="tab-content">
-            <!-- THIS DECORATES YOUR SECOND PAGE WITH YOUR GLOWING NEON LOGO IMAGE -->
             <div class="main-design-image" style="text-align: center; background: transparent; max-width: 300px; margin: 0 auto 25px auto;">
-                <img src="Original 2.PNG" alt="Outta Beauty Neon Logo" style="width: 100%;">
+                <img src="outtabeauty/Original 2.PNG" alt="Outta Beauty Neon Logo" style="width: 100%;">
             </div>
 
             <div class="service-card">
@@ -159,9 +214,17 @@
                 <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
             </div>
 
+            <!-- SEPARATED BROW SERVICE 1 -->
             <div class="service-card">
-                <h2>Henna Brows &amp; Tinting</h2>
-                <p>Meticulous mapping contours combined with premium natural-based shading for crisp background symmetry.</p>
+                <h2>Henna Brows</h2>
+                <p>Meticulous mapping contours combined with premium natural-based henna shading for a bold, structural shadow effect.</p>
+                <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
+            </div>
+
+            <!-- SEPARATED BROW SERVICE 2 -->
+            <div class="service-card">
+                <h2>Brow Tinting</h2>
+                <p>Classic specialized tint shading to safely darken, define, and enhance your natural eyebrow hairs.</p>
                 <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
             </div>
 
@@ -172,35 +235,22 @@
             </div>
         </div>
 
-        <!-- ==================== TAB 3: CONTACT & SETUP ==================== -->
+        <!-- ==================== TAB 3: CONTACT & PAYMENT ==================== -->
         <div id="payment-page" class="tab-content">
-            <div class="service-card">
-                <h2>Contact &amp; Payment Setup</h2>
-                <p>Please review our studio deposit rules and accepted payment methods before completing your booking.</p>
-                <p style="color: #ff007f; font-weight: bold; font-size: 0.9rem; margin-top: 15px;">💳 [Insert payment info or deposit instructions here]</p>
+            <div class="main-design-image" style="text-align: center; background: transparent; max-width: 300px; margin: 0 auto 25px auto;">
+                <img src="outtabeauty/Original 2.PNG" alt="Outta Beauty Neon Logo" style="width: 100%;">
             </div>
-        </div>
 
-    </div>
+            <div class="service-card">
+                <h2>Accepted Payment Methods 💳</h2>
+                <p>To ensure a smooth check-out layout, we securely accept payment processing powered by Square:</p>
+                <ul class="payment-list">
+                    <li>✨ Apple Pay &amp; Google Pay Digital Wallets</li>
+                    <li>✨ Major Credit or Debit Cards (Visa, Mastercard, AMEX)</li>
+                    <li>✨ Cash App / Venmo Transfers</li>
+                    <li>✨ Crisp Cash Clean Payments</li>
+                </ul>
+            </div>
 
-    <!-- Tab Swapping Logic -->
-    <script>
-        function switchTab(tabName) {
-            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('show'));
-            
-            if (tabName === 'gallery') {
-                document.getElementById('tab-gallery').classList.add('active');
-                document.getElementById('gallery-page').classList.add('show');
-            } else if (tabName === 'book') {
-                document.getElementById('tab-book').classList.add('active');
-                document.getElementById('book-page').classList.add('show');
-            } else if (tabName === 'payment') {
-                document.getElementById('tab-payment').classList.add('active');
-                document.getElementById('payment-page').classList.add('show');
-            }
-        }
-    </script>
-
-</body>
-</html>
+            <div class="service-card">
+                <h2>Studio Deposit Policy ⚠️</h2>
