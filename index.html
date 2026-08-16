@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Booking | Outta Beauty Luxury Lounge</title>
+    <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
     <style>
         body { 
             background-color: #0c0914; 
@@ -11,11 +11,11 @@
             font-family: 'Segoe UI', Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
-            line-height: 1.6; 
+            line-height: 1.5; 
             text-align: center;
         }
 
-        /* Top Navigation Menu Frame */
+        /* Top Navigation Menu Frame with Live Booking Tab Restored */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -37,117 +37,94 @@
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
-        /* Main Section Container */
-        .container {
-            max-width: 600px;
-            margin: 40px auto 60px auto;
-            padding: 0 20px;
-        }
-
-        .page-title {
-            color: #ffffff;
-            font-size: 1.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow: 0 0 15px #ff007f;
-            margin-bottom: 30px;
-        }
-
-        /* Salon Policies Card Layout */
-        .policy-card {
-            background: #14111f;
-            border: 1px solid rgba(255, 0, 127, 0.3);
-            border-radius: 16px;
-            padding: 25px;
-            text-align: left;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            margin-bottom: 40px;
-        }
-        .policy-card h2 {
-            margin-top: 0;
-            color: #ff007f;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 8px;
-        }
-        .policy-card ul {
-            padding-left: 20px;
-            margin: 15px 0 0 0;
-            color: #d1ced6;
-            font-size: 0.95rem;
-        }
-        .policy-card li {
-            margin-bottom: 12px;
-        }
-
-        /* Booking Embedded Frame Box */
-        .booking-box {
-            background: #14111f;
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-        }
-        .booking-box h2 {
-            color: #ffffff;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        /* Interactive Booking Button */
-        .external-book-btn {
-            display: block;
-            background: #ff007f;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 16px;
-            border-radius: 50px;
+        /* Main Dynamic Layout Banner Cover Image */
+        .cover-photo {
+            width: 100%;
+            height: 35vh;
+            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
             font-weight: bold;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
-            transition: 0.3s;
-            margin-top: 10px;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff007f;
         }
-        .external-book-btn:hover {
-            box-shadow: 0 0 30px #ff007f;
-            transform: translateY(-2px);
+
+        /* Custom Luxury Welcome Section */
+        .music-section { 
+            margin: 30px auto; 
+            max-width: 450px; 
+            padding: 25px; 
+            background: #14111f; 
+            border-radius: 16px; 
+            border: 1px solid #ff007f;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
+        }
+        .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
+        .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
+
+        /* Luxury 1-Minute Duration Slideshow Framework */
+        .slider { 
+            max-width: 600px; 
+            position: relative; 
+            margin: 30px auto 60px auto; 
+            overflow: hidden; 
+            border-radius: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+            background-color: #14111f;
+        }
+        .slides { display: flex; width: 400%; animation: slide-animation 60s infinite; }
+        
+        .slides img { 
+            width: 25%; 
+            height: 500px; 
+            object-fit: contain; 
+            background-color: #14111f; 
+        }
+        
+        @keyframes slide-animation {
+            0% { transform: translateX(0%); }
+            20% { transform: translateX(0%); }
+            25% { transform: translateX(-25%); }
+            45% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            70% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            95% { transform: translateX(-75%); }
+            100% { transform: translateX(0%); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Menu Framework -->
+    <!-- Top Navigation Menu Framework with Restored Link -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab">Home Lounge</a>
-        <a href="calendar.html" class="nav-tab active">Live Booking</a>
+        <a href="index.html" class="nav-tab active">Home Lounge</a>
+        <a href="portfolio.html" class="nav-tab">Lounge Work</a>
+        <a href="https://squareup.com" class="nav-tab">Live Booking</a>
     </div>
 
-    <div class="container">
-        <h1 class="page-title">Secure Your Session</h1>
+    <!-- Main Layout Cover Image -->
+    <div class="cover-photo">
+        OUTTA BEAUTY
+    </div>
 
-        <!-- Luxury Salon Lounge Policies -->
-        <div class="policy-card">
-            <h2>Lounge Attendance Policies</h2>
-            <ul>
-                <li><strong>Deposits:</strong> A non-refundable deposit is required to lock in your luxury time slot.</li>
-                <li><strong>Late Rules:</strong> Appointments are subject to cancellations after a 15-minute grace window.</li>
-                <li><strong>Cancellations:</strong> Please provide a 24-hour notice minimum to shift or reschedule your session.</li>
-                <li><strong>Guests:</strong> No extra visitors are permitted in the lounge seating area during lash applications.</li>
-            </ul>
-        </div>
+    <!-- Custom Luxury Section -->
+    <div class="music-section">
+        <h3>Lounge Station</h3>
+        <p>Vibe with me during your luxury session</p>
+    </div>
 
-        <!-- Appointment Gateway Frame -->
-        <div class="booking-box">
-            <h2>Select Date &amp; Time</h2>
-            <p style="color: #8a8894; font-size: 0.95rem; margin-bottom: 25px;">Tap below to launch your dedicated booking calendar system.</p>
-            <a href="https://squareup.com" target="_blank" class="external-book-btn">📅 Launch Booking Calendar</a>
+    <!-- Main 4-Image Slideshow Frame -->
+    <div class="slider">
+        <div class="slides">
+            <img src="sister.png" alt="Her Portrait First">
+            <img src="1785597649850.png" alt="Showcase 1">
+            <img src="1785596904014.png" alt="New Showcase 2">
+            <img src="1785682282832.jpg" alt="Showcase 3">
         </div>
     </div>
 
