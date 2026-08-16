@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        /* Top Navigation Tabs Frame */
+        /* Top Navigation Menu Frame */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -34,29 +34,25 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .nav-tab.active {
-            color: #ff007f;
-        }
-        .nav-tab:hover {
-            color: #ffffff;
-        }
+        .nav-tab.active { color: #ff007f; }
+        .nav-tab:hover { color: #ffffff; }
 
-        /* Cover Layout Photo Frame */
+        /* Main Dynamic Layout Banner Cover Image */
         .cover-photo {
             width: 100%;
-            height: 55vh;
-            background: linear-gradient(rgba(12, 9, 20, 0.4), rgba(12, 9, 20, 0.4)), url('Original 2.PNG') center/cover no-repeat;
+            height: 50vh;
+            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff007f;
         }
 
-        /* Luxury Audio Container */
+        /* Custom Luxury Music Section Widget Player */
         .music-section { 
             margin: 40px auto; 
             max-width: 450px; 
@@ -67,20 +63,19 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
         }
         .music-section h3 { margin: 0 0 10px 0; font-size: 1rem; color: #ff007f; letter-spacing: 1px; }
-        audio { width: 100%; margin-top: 5px; }
 
-        /* Modern Automatic Slideshow Layout */
+        /* Cleaned 4-Image Slideshow Framework */
         .slider { 
             max-width: 750px; 
             position: relative; 
-            margin: 40px auto; 
+            margin: 40px auto 60px auto; 
             overflow: hidden; 
             border-radius: 16px; 
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
         }
         .slides { display: flex; width: 400%; animation: slide-animation 16s infinite; }
-        .slides img { width: 100%; height: 480px; object-fit: cover; }
+        .slides img { width: 25%; height: 500px; object-fit: cover; }
         
         @keyframes slide-animation {
             0% { transform: translateX(0%); }
@@ -99,28 +94,26 @@
         <a href="calendar.html" class="nav-tab">Live Booking</a>
     </div>
 
-    <!-- Main Dynamic Layout Banner Cover Image -->
+    <!-- Main Layout Cover Image -->
     <div class="cover-photo">
         OUTTA BEAUTY
     </div>
 
-    <!-- Custom Luxury Music Section Widget Player -->
-<div class="music-section">
-    <h3>NOW PLAYING</h3>
-    <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #8a8894;">Drake — Sweeterman</p>
-    
-    <!-- iPhone-Compatible Premium Web Player Stream -->
-    <iframe width="100%" height="60" src="https://youtube.com" title="Sweeterman Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
-</div>
+    <!-- Custom Luxury Music Section Widget Player (Drake YouTube Stream) -->
+    <div class="music-section">
+        <h3>NOW PLAYING</h3>
+        <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #8a8894;">Drake — Sweeterman</p>
+        <iframe width="100%" height="60" src="https://youtube.com" title="Sweeterman Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+    </div>
 
-
-    <!-- Main Visual Presentation Slideshow Frame -->
+    <!-- Main 4-Image Slideshow Frame -->
     <div class="slider">
         <div class="slides">
-            <img src="1785597649850.png" alt="Lounge Showcase 1">
-            <img src="1785676750442.jpg" alt="Lounge Showcase 2">
-            <img src="1785682282322.jpg" alt="Lounge Showcase 3">
-            <img src="1785703852626.png" alt="Lounge Showcase 4">
+            <!-- Your sister's portrait is front and center! -->
+            <img src="sister.png" alt="Her Portrait First">
+            <img src="1785597649850.png" alt="Showcase 1">
+            <img src="1785676750442.jpg" alt="Showcase 2">
+            <img src="1785682282322.jpg" alt="Showcase 3">
         </div>
     </div>
 
