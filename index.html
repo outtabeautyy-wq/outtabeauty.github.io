@@ -13,6 +13,7 @@
             padding: 0;
             line-height: 1.5;
         }
+        /* THE EXACT 3-STEP TABS FROM YOUR PHOTO */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -26,18 +27,33 @@
             text-align: center;
         }
         .nav-tab {
-            color: #ff007f;
+            color: #ffffff;
             text-decoration: none;
             flex: 1;
+            cursor: pointer;
         }
-        .nav-tab.inactive {
-            color: #8a8894;
+        .nav-tab.active {
+            color: #ff007f;
+            border-bottom: 2px solid #ff007f;
+            margin-bottom: -14px;
+            padding-bottom: 12px;
         }
         .container {
             max-width: 600px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 0 15px;
         }
+        /* MAIN LOGO DISPLAY HEADER */
+        .logo-header-block {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .logo-header-block img.main-logo {
+            width: 70%;
+            max-width: 260px;
+            object-fit: contain;
+        }
+        /* PAGE 1: THE INTRO GALLERY LAYOUT */
         .gallery-card {
             border: 2px solid #ff007f;
             border-radius: 16px;
@@ -48,71 +64,82 @@
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: #140f22;
+            background: #ff007f;
+            gap: 2px;
         }
         .grid-panel {
-            padding: 25px 15px;
+            background: #140f22;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            border: 1px solid #251b3d;
-            min-height: 140px;
+            min-height: 160px;
             box-sizing: border-box;
+            overflow: hidden;
         }
         .panel-brand h1 {
             color: #ff007f;
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin: 0;
             font-family: 'Georgia', serif;
-            text-transform: none;
         }
         .panel-brand p {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: #bcbbfa;
             margin: 5px 0 0 0;
         }
-        .panel-img {
-            background-color: #1a1528;
-            color: #ff007f;
-            font-size: 0.9rem;
-            font-weight: bold;
+        .grid-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         .gallery-footer {
-            background: #000000;
-            padding: 15px;
+            background: #140f22;
+            padding: 20px;
             text-align: center;
-            border-top: 1px solid #ff007f;
+            border-top: 2px solid #ff007f;
             font-size: 0.85rem;
             color: #f4f3f7;
+            position: relative;
+        }
+        .gallery-footer::before {
+            content: "💎";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #140f22;
+            padding: 0 10px;
         }
         .experience-card {
             background: #140f22;
             border-radius: 16px;
             padding: 25px;
             margin-bottom: 25px;
-            border-left: 5px solid #ff007f;
+            border-left: 4px solid #ff007f;
         }
         .experience-card h2 {
             color: #ff007f;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-top: 0;
-            text-transform: uppercase;
+            margin-bottom: 10px;
         }
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-top: 15px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
+        /* PAGE 2: BOOK TREATMENTS LAYOUT */
         .service-card {
             background: #140f22;
             border-radius: 16px;
             padding: 25px;
             margin-bottom: 25px;
-            border: 1px solid #251b3d;
+            border-left: 4px solid #ff007f;
         }
         .service-card h2 {
             color: #ff007f;
@@ -130,7 +157,7 @@
             background-color: #ff007f;
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 12px 28px;
             border-radius: 25px;
             font-weight: bold;
             text-transform: uppercase;
@@ -139,71 +166,107 @@
             border: none;
             text-align: center;
         }
+        /* TAB PAGE VISIBILITY SWITCHES */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Tabs -->
+    <!-- NAV TABS AT THE TOP -->
     <div class="nav-tabs">
-        <div class="nav-tab">1. GALLERY<br>VIEW</div>
-        <div class="nav-tab inactive">2. BOOK<br>TREATMENTS</div>
-        <div class="nav-tab inactive">3. CONTACT<br>SETUP</div>
+        <div class="nav-tab active" onclick="switchTab('gallery')">1. GALLERY<br>VIEW</div>
+        <div class="nav-tab" onclick="switchTab('book')">2. BOOK<br>TREATMENTS</div>
+        <div class="nav-tab" onclick="switchTab('payment')">3. CONTACT &amp;<br>PAYMENT</div>
     </div>
 
     <div class="container">
 
-        <!-- Grid Image Panels Section -->
-        <div class="gallery-card">
-            <div class="grid-container">
-                <div class="grid-panel panel-brand">
-                    <h1>Outta Beauty</h1>
-                    <p>Brows &amp; Lashes<br>• Henna Brows &amp; Tinting<br>• Brow Waxing<br>• Cluster Lashes</p>
+        <!-- LOGO BRAND DECORATION -->
+        <div class="logo-header-block">
+            <img src="logo.png" alt="Outta Beauty Logo" class="main-logo">
+        </div>
+
+        <!-- ==================== TAB 1: GALLERY VIEW ==================== -->
+        <div id="gallery-page" class="tab-content show">
+            <div class="gallery-card">
+                <div class="grid-container">
+                    <div class="grid-panel panel-brand">
+                        <h1>Outta Beauty</h1>
+                        <p>Brows &amp; Lashes</p>
+                    </div>
+                    <div class="grid-panel">
+                        <img src="eyelash.jpg" alt="Lash Close-up">
+                    </div>
+                    <div class="grid-panel">
+                        <img src="salon.jpg" alt="Salon Lounge View">
+                    </div>
+                    <div class="grid-panel">
+                        <img src="bar.jpg" alt="Main Bar Lounge">
+                    </div>
                 </div>
-                <div class="grid-panel panel-img">
-                    [Lash Close-up Image]
-                </div>
-                <div class="grid-panel panel-img">
-                    [Salon Chair Image]
-                </div>
-                <div class="grid-panel panel-img" style="background: #25142b;">
-                    🍹 COMPLIMENTARY BAR EXPERIENCE
+                <div class="gallery-footer">
+                    A unique, integrated space for both premier eyebrows and lashes services and a full stocked bar. Enjoy expert treatments followed by one complimentary drink or cocktail in a luxurious, social settling.
                 </div>
             </div>
-            <div class="gallery-footer">
-                A unique, integrated space for both premier eyebrows and lashes services and a full stocked bar. Enjoy expert treatments followed by one complimentary drink or cocktail in a luxurious, social settling.
+
+            <div class="experience-card">
+                <h2>THE LUXURY BAR EXPERIENCE INCLUDED 🍸</h2>
+                <p style="color: #bcbbfa; font-size: 0.9rem; margin: 0;">Outta Beauty reimagines salon treatments by introducing an integrated social lounge. Relax in our premium studio environment while receiving world-class beauty services, complemented by a fully curated beverage bar layout.</p>
+                <div class="features-grid">
+                    <div>🥂 <strong>One Complimentary Custom Cocktail, Wine, or Soft Drink</strong></div>
+                    <div>🛋️ <strong>Premium High-End Lounge Reclining Seating &amp; Neo Ambiance</strong></div>
+                </div>
             </div>
         </div>
 
-        <!-- The Luxury Bar Details -->
-        <div class="experience-card">
-            <h2>THE LUXURY BAR EXPERIENCE INCLUDED 🍸</h2>
-            <p style="color: #bcbbfa; font-size: 0.9rem; margin: 0;">Outta Beauty reimagines salon treatments by introducing an integrated social lounge. Relax in our premium studio environment while receiving world-class beauty services, complemented by a fully curated beverage bar layout.</p>
-            <div class="features-grid">
-                <div>🥂 <strong>One Complimentary Custom Cocktail, Wine, or Soft Drink</strong></div>
-                <div>🥂 <strong>Premium High-End Lounge Reclining Seating &amp; Neo Ambiance</strong></div>
+        <!-- ==================== TAB 2: BOOK TREATMENTS ==================== -->
+        <div id="book-page" class="tab-content">
+            <div class="service-card">
+                <h2>Cluster Lashes</h2>
+                <p>Premium volume cluster layouts with lightweight synthetic fibers for instant high-glamour eye drama.</p>
+                <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Henna Brows &amp; Tinting</h2>
+                <p>Meticulous mapping contours combined with premium natural-based shading for crisp background symmetry.</p>
+                <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Brow Waxing</h2>
+                <p>Gentle smooth warm wax sculpting to create clean, custom tailored geometric arches.</p>
+                <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
             </div>
         </div>
 
-        <!-- Service Booking Cards -->
-        <div class="service-card">
-            <h2>Cluster Lashes</h2>
-            <p>Premium volume cluster layouts with lightweight synthetic fibers for instant high-glamour eye drama.</p>
-            <a href="#" class="btn">Open Live Calendar</a>
-        </div>
-
-        <div class="service-card">
-            <h2>Henna Brows &amp; Tinting</h2>
-            <p>Meticulous mapping contours combined with premium natural-based shading for crisp background symmetry.</p>
-            <a href="#" class="btn">Open Live Calendar</a>
-        </div>
-
-        <div class="service-card">
-            <h2>Brow Waxing</h2>
-            <p>Gentle smooth warm wax sculpting to create clean, custom tailored geometric arches.</p>
-            <a href="#" class="btn">Open Live Calendar</a>
+        <!-- ==================== TAB 3: CONTACT & PAYMENT ==================== -->
+        <div id="payment-page" class="tab-content">
+            <div class="service-card">
+                <h2>Payment Setup &amp; Policy</h2>
+                <p>Please review our studio deposit rules and accepted payment methods before completing your booking.</p>
+                <!-- You can add text here about deposits, Venmo, CashApp, or cards -->
+                <p style="color: #ff007f; font-weight: bold;">💳 [Insert your custom payment info or deposit instructions here]</p>
+            </div>
         </div>
 
     </div>
 
-</body>
-</html>
+    <!-- CODE MAGIC TO AUTOMATICALLY SWITCH THE PAGES -->
+    <script>
+        function switchTab(tabName) {
+            // Remove active classes
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('show'));
+            
+            // Add active status to selected page
+            if (tabName === 'gallery') {
+                document.querySelectorAll('.nav-tab')[0].classList.add('active');
+                document.getElementById('gallery-page').classList.add('show');
+            } else if (tabName === 'book') {
+                document.querySelectorAll('.nav-tab')[1].classList.add('active');
