@@ -75,7 +75,7 @@
             display: block;
             height: auto;
         }
-        /* Slideshow Layout */
+        /* Slideshow Framework */
         .slideshow-container {
             width: 100%;
             position: relative;
@@ -91,7 +91,7 @@
         }
         .mySlides img {
             width: 100%;
-            height: 350px;
+            height: 380px;
             object-fit: cover;
             display: block;
         }
@@ -161,8 +161,8 @@
 </head>
 <body>
 
-    <!-- Background Music Player (Hidden) -->
-    <audio id="bg-music" src="outtabeauty/background-music.mp3" loop></audio>
+    <!-- Background Music Audio Stream Connection -->
+    <audio id="bg-music" src="Drake Sweeterman Explicit.mp3" loop></audio>
     <div id="music-btn" class="music-control" onclick="toggleMusic()">🔇</div>
 
     <!-- Tabs at the Top -->
@@ -172,26 +172,31 @@
         <div id="tab-payment" class="nav-tab" onclick="switchTab('payment')">3. CONTACT &amp;<br>PAYMENT</div>
     </div>
 
+    <!-- User activity anywhere inside this frame unmutes Drake's track automatically -->
     <div class="container" onclick="startMusicOnFirstClick()">
 
         <!-- ==================== TAB 1: GALLERY VIEW ==================== -->
         <div id="gallery-page" class="tab-content show">
+            <!-- MAIN COVER PHOTO LAYER -->
             <div class="main-design-image">
-                <img src="outtabeauty/1785597649850.png" alt="Outta Beauty Intro Gallery">
+                <img src="outtabeauty/1785597649850.png" alt="Outta Beauty Cover Graphic Layout">
             </div>
 
-            <!-- THE NEW IMAGE SLIDESHOW BLOCK -->
+            <!-- THE AUTOMATED IMAGE SLIDESHOW GALLERY -->
             <div class="slideshow-container">
-                <div class="mySlides fade">
+                <!-- SLIDE 1: YOUR SISTER'S PHOTO -->
+                <div class="mySlides">
                     <img src="outtabeauty/sister.jpg" onerror="this.src='outtabeauty/sister.png';" alt="Meet Your Artist">
-                    <div class="slide-caption">✨ Meet Your Lead Artist ✨</div>
+                    <div class="slide-caption">✨ Meet Your Lead Artist &amp; Master Stylist ✨</div>
                 </div>
-                <div class="mySlides fade">
-                    <img src="outtabeauty/deal.jpg" onerror="this.src='outtabeauty/deal.png';" alt="Current Special Deal">
-                    <div class="slide-caption">🔥 Exclusive Luxury Lounge Special Deal 🔥</div>
+                <!-- SLIDE 2: THE DEAL PROMO FLYER -->
+                <div class="mySlides">
+                    <img src="outtabeauty/deal.jpg" onerror="this.src='outtabeauty/deal.png';" alt="Current Special Deal Layout">
+                    <div class="slide-caption">🔥 Exclusive Luxury Lounge Special Deal Flyer 🔥</div>
                 </div>
             </div>
 
+            <!-- SALON DETAILS BAR BLOCK -->
             <div class="service-card">
                 <h2>THE LUXURY BAR EXPERIENCE INCLUDED 🍸</h2>
                 <p style="color: #bcbbfa; font-size: 0.9rem; margin: 0;">Outta Beauty reimagines salon treatments by introducing an integrated social lounge. Relax in our premium studio environment while receiving world-class beauty services, complemented by a fully curated beverage bar layout.</p>
@@ -204,8 +209,9 @@
 
         <!-- ==================== TAB 2: BOOK TREATMENTS ==================== -->
         <div id="book-page" class="tab-content">
+            <!-- OPEN PHOTO OVERLAY DECORATION (NEON HEART LOGO) -->
             <div class="main-design-image" style="text-align: center; background: transparent; max-width: 300px; margin: 0 auto 25px auto;">
-                <img src="outtabeauty/Original 2.PNG" alt="Outta Beauty Neon Logo" style="width: 100%;">
+                <img src="outtabeauty/Original 2.PNG" alt="Outta Beauty Glowing Neon Logo">
             </div>
 
             <div class="service-card">
@@ -214,14 +220,12 @@
                 <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
             </div>
 
-            <!-- SEPARATED BROW SERVICE 1 -->
             <div class="service-card">
                 <h2>Henna Brows</h2>
                 <p>Meticulous mapping contours combined with premium natural-based henna shading for a bold, structural shadow effect.</p>
                 <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
             </div>
 
-            <!-- SEPARATED BROW SERVICE 2 -->
             <div class="service-card">
                 <h2>Brow Tinting</h2>
                 <p>Classic specialized tint shading to safely darken, define, and enhance your natural eyebrow hairs.</p>
@@ -238,7 +242,7 @@
         <!-- ==================== TAB 3: CONTACT & PAYMENT ==================== -->
         <div id="payment-page" class="tab-content">
             <div class="main-design-image" style="text-align: center; background: transparent; max-width: 300px; margin: 0 auto 25px auto;">
-                <img src="outtabeauty/Original 2.PNG" alt="Outta Beauty Neon Logo" style="width: 100%;">
+                <img src="outtabeauty/Original 2.PNG" alt="Outta Beauty Neon Logo">
             </div>
 
             <div class="service-card">
@@ -249,8 +253,3 @@
                     <li>✨ Major Credit or Debit Cards (Visa, Mastercard, AMEX)</li>
                     <li>✨ Cash App / Venmo Transfers</li>
                     <li>✨ Crisp Cash Clean Payments</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <h2>Studio Deposit Policy ⚠️</h2>
