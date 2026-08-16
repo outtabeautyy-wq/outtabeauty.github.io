@@ -6,120 +6,203 @@
     <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
     <style>
         body {
-            background-color: #08070d;
+            background-color: #0c0914;
             color: #f4f3f7;
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.5;
         }
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: #140f22;
+        .nav-tabs {
+            display: flex;
+            justify-content: space-around;
+            background: #000000;
             border-bottom: 2px solid #ff007f;
-        }
-        h1 {
-            color: #ff007f;
-            margin: 0;
-            font-size: 2.5rem;
+            padding: 12px 0;
+            font-size: 0.75rem;
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            text-align: center;
         }
-        .subtitle {
-            color: #f4f3f7;
-            font-size: 1.2rem;
-            margin-top: 10px;
+        .nav-tab {
+            color: #ff007f;
+            text-decoration: none;
+            flex: 1;
+        }
+        .nav-tab.inactive {
+            color: #8a8894;
         }
         .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
-        .intro-card, .service-card {
+        .gallery-card {
+            border: 2px solid #ff007f;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 25px;
             background: #140f22;
-            border: 1px solid #ff007f;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
         }
-        .intro-card h2, .service-card h2 {
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #140f22;
+        }
+        .grid-panel {
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #251b3d;
+            min-height: 140px;
+            box-sizing: border-box;
+        }
+        .panel-brand h1 {
             color: #ff007f;
-            margin-top: 0;
+            font-size: 2rem;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            text-transform: none;
         }
-        .bar-experience {
-            border-left: 4px solid #ff007f;
-            padding-left: 15px;
-            margin: 20px 0;
+        .panel-brand p {
+            font-size: 0.85rem;
+            color: #bcbbfa;
+            margin: 5px 0 0 0;
+        }
+        .panel-img {
+            background-color: #1a1528;
+            color: #ff007f;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .gallery-footer {
+            background: #000000;
+            padding: 15px;
+            text-align: center;
+            border-top: 1px solid #ff007f;
+            font-size: 0.85rem;
+            color: #f4f3f7;
+        }
+        .experience-card {
+            background: #140f22;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #ff007f;
+        }
+        .experience-card h2 {
+            color: #ff007f;
+            font-size: 1.3rem;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+        .service-card {
+            background: #140f22;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #251b3d;
+        }
+        .service-card h2 {
+            color: #ff007f;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            color: #bcbbfa;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
         }
         .btn {
             display: inline-block;
             background-color: #ff007f;
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 25px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-top: 15px;
+            font-size: 0.8rem;
             letter-spacing: 1px;
             border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #e0006c;
-        }
-        .features {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            gap: 15px;
-        }
-        .feature-item {
-            flex: 1;
-            min-width: 250px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Outta Beauty</h1>
-        <div class="subtitle">Luxury Lash, Brow &amp; Bar Lounge</div>
-    </header>
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <div class="nav-tab">1. GALLERY<br>VIEW</div>
+        <div class="nav-tab inactive">2. BOOK<br>TREATMENTS</div>
+        <div class="nav-tab inactive">3. CONTACT<br>SETUP</div>
+    </div>
 
     <div class="container">
-        <!-- 3RD PHOTO: THE INTRO HERO SECTION -->
-        <div class="intro-card">
-            <h2>THE LUXURY BAR EXPERIENCE INCLUDED 🍸</h2>
-            <p>Outta Beauty reimagines salon treatments by introducing an integrated social lounge. Relax in our premium studio environment while receiving world-class beauty services, complemented by a fully curated beverage bar layout.</p>
-            
-            <div class="features">
-                <div class="feature-item">🥂 <strong>One Complimentary Custom Cocktail, Wine, or Soft Drink</strong></div>
-                <div class="feature-item">🥂 <strong>Premium High-End Lounge Reclining Seating &amp; Neo Ambiance</strong></div>
+
+        <!-- Grid Image Panels Section -->
+        <div class="gallery-card">
+            <div class="grid-container">
+                <div class="grid-panel panel-brand">
+                    <h1>Outta Beauty</h1>
+                    <p>Brows &amp; Lashes<br>• Henna Brows &amp; Tinting<br>• Brow Waxing<br>• Cluster Lashes</p>
+                </div>
+                <div class="grid-panel panel-img">
+                    [Lash Close-up Image]
+                </div>
+                <div class="grid-panel panel-img">
+                    [Salon Chair Image]
+                </div>
+                <div class="grid-panel panel-img" style="background: #25142b;">
+                    🍹 COMPLIMENTARY BAR EXPERIENCE
+                </div>
+            </div>
+            <div class="gallery-footer">
+                A unique, integrated space for both premier eyebrows and lashes services and a full stocked bar. Enjoy expert treatments followed by one complimentary drink or cocktail in a luxurious, social settling.
             </div>
         </div>
 
-        <!-- 1ST & 2ND PHOTOS: THE SERVICES LIST -->
+        <!-- The Luxury Bar Details -->
+        <div class="experience-card">
+            <h2>THE LUXURY BAR EXPERIENCE INCLUDED 🍸</h2>
+            <p style="color: #bcbbfa; font-size: 0.9rem; margin: 0;">Outta Beauty reimagines salon treatments by introducing an integrated social lounge. Relax in our premium studio environment while receiving world-class beauty services, complemented by a fully curated beverage bar layout.</p>
+            <div class="features-grid">
+                <div>🥂 <strong>One Complimentary Custom Cocktail, Wine, or Soft Drink</strong></div>
+                <div>🥂 <strong>Premium High-End Lounge Reclining Seating &amp; Neo Ambiance</strong></div>
+            </div>
+        </div>
+
+        <!-- Service Booking Cards -->
         <div class="service-card">
             <h2>Cluster Lashes</h2>
             <p>Premium volume cluster layouts with lightweight synthetic fibers for instant high-glamour eye drama.</p>
-            <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
+            <a href="#" class="btn">Open Live Calendar</a>
         </div>
 
         <div class="service-card">
             <h2>Henna Brows &amp; Tinting</h2>
             <p>Meticulous mapping contours combined with premium natural-based shading for crisp background symmetry.</p>
-            <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
+            <a href="#" class="btn">Open Live Calendar</a>
         </div>
 
         <div class="service-card">
             <h2>Brow Waxing</h2>
             <p>Gentle smooth warm wax sculpting to create clean, custom tailored geometric arches.</p>
-            <a href="YOUR_SQUARESPACE_SCHEDULING_URL_HERE" class="btn" target="_blank">Open Live Calendar</a>
+            <a href="#" class="btn">Open Live Calendar</a>
         </div>
+
     </div>
 
 </body>
