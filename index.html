@@ -26,6 +26,9 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .nav-tab {
             color: #8a8894;
@@ -37,15 +40,18 @@
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
-        /* Dedicated Booking Calendar Layout Container - Added styling here */
+        /* Dedicated Booking Calendar Frame - Forces Square to Render Responsive */
         .booking-section {
-            margin: 20px auto 20px auto;
+            margin: 20px auto;
+            width: 95%;
             max-width: 900px;
-            padding: 10px;
             background: #14111f;
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid #ff007f;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+            padding: 15px 5px;
+            min-height: 600px; /* Forces open room on mobile screens for the calendar to load */
         }
 
         /* Main Dynamic Layout Banner Cover Image */
@@ -111,13 +117,13 @@
 </head>
 <body>
 
-    <!-- Tabs Navigation Menu Link Setup -->
+    <!-- Tabs Navigation Menu - Pointed to anchor down to the script element layout -->
     <div class="nav-tabs">
         <a href="#" class="nav-tab active">Home Lounge</a>
         <a href="#booking" class="nav-tab">Live Booking</a>
     </div>
 
-    <!-- Active Top Section: Added your live Square booking flow box right below the menu -->
+    <!-- Active Top Section: Embedded Live Square Checkout Layout Frame -->
     <div id="booking" class="booking-section">
         <!-- Start Square Appointments Embed Code -->
         <script src="https://square.site"></script>
