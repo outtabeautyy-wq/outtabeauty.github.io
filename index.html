@@ -129,31 +129,30 @@
             <img src="1785682282832.jpg" alt="Showcase 3">
         </div>
     </div>
-     ... Rest of your website content above ... -->
+         </div>
 
-    <-- Background Audio Element -->
+    <!-- Background Audio Element -->
     <audio id="salon-music" loop>
       <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <-- Interaction Trigger Script -->
+    <!-- Interaction Trigger Script -->
     <script>
       function playSalonMusic() {
         var track = document.getElementById("salon-music");
         track.play().catch(function(e) {
           console.log("Autoplay paused by browser security policy.");
         });
-        // Remove listeners immediately so it only triggers once
         document.removeEventListener('click', playSalonMusic);
         document.removeEventListener('touchstart', playSalonMusic);
         document.removeEventListener('scroll', playSalonMusic);
       }
 
-      // Activates the song the millisecond a client taps, scrolls, or touches their screen
       document.addEventListener('click', playSalonMusic);
       document.addEventListener('touchstart', playSalonMusic);
       document.addEventListener('scroll', playSalonMusic);
     </script>
-    
+
+
 </body>
 </html>
