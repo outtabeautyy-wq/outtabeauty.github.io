@@ -37,6 +37,17 @@
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
+        /* Dedicated Booking Calendar Layout Container - Added styling here */
+        .booking-section {
+            margin: 20px auto 20px auto;
+            max-width: 900px;
+            padding: 10px;
+            background: #14111f;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
         /* Main Dynamic Layout Banner Cover Image */
         .cover-photo {
             width: 100%;
@@ -100,10 +111,17 @@
 </head>
 <body>
 
-    <!-- Two Tabs Menu Connected Directly to Her Private Booking Site Link -->
+    <!-- Tabs Navigation Menu Link Setup -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab active">Home Lounge</a>
-        <a href="https://squareup.com" target="_blank" class="nav-tab">Live Booking</a>
+        <a href="#" class="nav-tab active">Home Lounge</a>
+        <a href="#booking" class="nav-tab">Live Booking</a>
+    </div>
+
+    <!-- Active Top Section: Added your live Square booking flow box right below the menu -->
+    <div id="booking" class="booking-section">
+        <!-- Start Square Appointments Embed Code -->
+        <script src="https://square.site"></script>
+        <!-- End Square Appointments Embed Code -->
     </div>
 
     <!-- Main Layout Cover Image -->
