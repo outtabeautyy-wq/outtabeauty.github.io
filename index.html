@@ -3,127 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
+    <title>Outta Beauty</title>
     <style>
-        body { 
-            background-color: #0c0914; 
-            color: #f4f3f7; 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            line-height: 1.5; 
-            text-align: center;
-        }
-
-        /* Top Navigation Menu Frame */
-        .nav-tabs {
-            display: flex;
-            justify-content: space-around;
-            background: #000000;
-            border-bottom: 2px solid #ff007f;
-            padding: 12px 0;
-            font-size: 0.85rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .nav-tab {
-            color: #8a8894;
-            text-decoration: none;
-            flex: 1;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .nav-tab.active { color: #ff007f; }
-        .nav-tab:hover { color: #ffffff; }
-
-        /* Main Dynamic Layout Banner Cover Image */
-        .cover-photo {
-            width: 100%;
-            height: 35vh;
-            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            letter-spacing: 4px;
+        /* Base page reset to keep everything dark and elegant */
+        body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
             color: #ffffff;
-            text-shadow: 0 0 15px #ff007f;
-        }
-
-        /* Custom Luxury Music Section Widget Player */
-        .music-section { 
-            margin: 30px auto; 
-            max-width: 450px; 
-            padding: 20px; 
-            background: #14111f; 
-            border-radius: 16px; 
-            border: 1px solid #ff007f;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
-        }
-        .music-section h3 { margin: 0 0 10px 0; font-size: 1rem; color: #ff007f; letter-spacing: 1px; }
-
-        /* Cleaned 4-Image Slideshow Framework */
-        .slider { 
-            max-width: 600px; 
-            position: relative; 
-            margin: 30px auto 60px auto; 
-            overflow: hidden; 
-            border-radius: 16px; 
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
-            background-color: #14111f;
-        }
-        .slides { display: flex; width: 400%; animation: slide-animation 16s infinite; }
-        
-        /* Fixed styling to show your sister's portrait fully without cropping */
-        .slides img { 
-            width: 25%; 
-            height: 500px; 
-            object-fit: contain; 
-            background-color: #14111f; 
-        }
-        
-        @keyframes slide-animation {
-            0% { transform: translateX(0%); }
-            25% { transform: translateX(-25%); }
-            50% { transform: translateX(-50%); }
-            75% { transform: translateX(-75%); }
-            100% { transform: translateX(0%); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Menu Framework -->
-    <div class="nav-tabs">
-        <a href="index.html" class="nav-tab active">Home Lounge</a>
-        <a href="calendar.html" class="nav-tab">Live Booking</a>
+    <!-- 1. TOP NAVIGATION BAR -->
+    <nav style="display: flex; justify-content: space-between; align-items: center; width: 100%; border-bottom: 2px solid #ff007f; padding: 15px 20px; background-color: #000000; box-sizing: border-box;">
+        <!-- Left Link -->
+        <a href="#" style="color: #ff007f; text-decoration: none; font-weight: bold; font-size: 13px; letter-spacing: 1px;">HOME LOUNGE</a>
+        
+        <!-- Right Link (Directly opens your Square booking system) -->
+        <a href="https://squareup.com" target="_blank" style="color: #ffffff; text-decoration: none; font-weight: bold; font-size: 13px; letter-spacing: 1px;">LIVE BOOKING</a>
+    </nav>
+
+    <!-- 2. MAIN LOGO HEADER AREA -->
+    <div style="text-align: center; margin: 40px auto 30px auto; max-width: 500px; padding: 0 20px;">
+        <!-- Heart Image Icon -->
+        <div style="color: #ff007f; font-size: 50px; margin-bottom: 5px; line-height: 1;">❤️</div>
+        <!-- Business Logo Text -->
+        <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: bold; letter-spacing: 2px;">OUTTA BEAUTY</h1>
+        <div style="color: #ff007f; font-style: italic; font-size: 28px; font-family: cursive; margin-top: -5px;">Outta Beauty</div>
     </div>
 
-    <!-- Main Layout Cover Image -->
-    <div class="cover-photo">
-        OUTTA BEAUTY
+    <!-- 3. LOUNGE STATION CAPSULE BOX -->
+    <div class="lounge-box" style="border: 2px solid #ff007f; border-radius: 15px; padding: 20px; background-color: #121212; text-align: center; margin: 0 auto 20px auto; color: white; max-width: 460px; width: 90%; box-sizing: border-box;">
+        <h2 style="color: #ff007f; letter-spacing: 2px; margin-bottom: 5px; font-size: 18px; margin-top: 0;">LOUNGE STATION</h2>
+        <p style="margin: 0; color: #cccccc; font-size: 13px;">Vibe with me during your luxury session</p>
     </div>
 
-    <!-- Custom Luxury Music Section Widget Player (SoundCloud Unlocked Network Frame) -->
-    <div class="music-section">
-        <h3>NOW PLAYING</h3>
-        <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #8a8894;">Drake — Sweeterman</p>
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com"></iframe>
+    <!-- 4. AUTOMATIC SLIDESHOW PANEL -->
+    <div class="slideshow-panel" style="background-color: #1a1a24; border-radius: 20px; padding: 20px; display: flex; justify-content: center; align-items: center; margin: 0 auto 40px auto; max-width: 460px; width: 90%; box-sizing: border-box;">
+        <!-- Starts with your sister's photo loaded immediately -->
+        <img id="loungeSlideshow" src="sister.png" alt="Lounge Showcase" style="max-width: 100%; max-height: 550px; border-radius: 10px; transition: opacity 0.5s ease-in-out; display: block;">
     </div>
 
-    <!-- Main 4-Image Slideshow Frame -->
-    <div class="slider">
-        <div class="slides">
-            <!-- Your sister's portrait is front and center! -->
-            <img src="sister.png" alt="Her Portrait First">
-            <img src="1785597649850.png" alt="Showcase 1">
-            <img src="1785676750442.jpg" alt="Showcase 2">
-            <img src="1785596904014.jpg" alt="Showcase 3">
-        </div>
-    </div>
+    <!-- 5. SLIDESHOW ROTATION SCRIPT -->
+    <script>
+        // Array of your exact uploaded repository filenames
+        const loungeImages = [
+            "sister.png",
+            "1785596904014.png",
+            "1785597648050.png",
+            "17856822832.jpg",
+            "Original 2.PNG"
+        ];
+
+        let currentImageIndex = 0;
+        const slideshowElement = document.getElementById("loungeSlideshow");
+
+        function changeImage() {
+            // Fade out smoothly
+            slideshowElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Change to the next image path
+                currentImageIndex = (currentImageIndex + 1) % loungeImages.length;
+                slideshowElement.src = loungeImages[currentImageIndex];
+                // Fade back in smoothly
+                slideshowElement.style.opacity = 1;
+            }, 500); 
+        }
+
+        // Changed from 4000 to 60000 to switch photos exactly every 1 minute
+        setInterval(changeImage, 60000);
+    </script>
 
 </body>
 </html>
