@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        /* Top Navigation Menu Frame - Two Tabs Only */
+        /* Top Navigation Menu Frame */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -37,7 +37,7 @@
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
-        /* Main Banner Styling */
+        /* Main Dynamic Layout Banner Cover Image */
         .cover-photo {
             width: 100%;
             height: 35vh;
@@ -52,20 +52,19 @@
             text-shadow: 0 0 15px #ff007f;
         }
 
-        /* Custom Welcome Box Layout */
+        /* Custom Luxury Music Section Widget Player */
         .music-section { 
             margin: 30px auto; 
             max-width: 450px; 
-            padding: 25px; 
+            padding: 20px; 
             background: #14111f; 
             border-radius: 16px; 
             border: 1px solid #ff007f;
             box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
         }
-        .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
-        .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
+        .music-section h3 { margin: 0 0 10px 0; font-size: 1rem; color: #ff007f; letter-spacing: 1px; }
 
-        /* Slowed-Down 1-Minute Slideshow */
+        /* Cleaned 4-Image Slideshow Framework */
         .slider { 
             max-width: 600px; 
             position: relative; 
@@ -76,7 +75,9 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
             background-color: #14111f;
         }
-        .slides { display: flex; width: 400%; animation: slide-animation 60s infinite; }
+        .slides { display: flex; width: 400%; animation: slide-animation 16s infinite; }
+        
+        /* Fixed styling to show your sister's portrait fully without cropping */
         .slides img { 
             width: 25%; 
             height: 500px; 
@@ -86,40 +87,41 @@
         
         @keyframes slide-animation {
             0% { transform: translateX(0%); }
-            20% { transform: translateX(0%); }
             25% { transform: translateX(-25%); }
-            45% { transform: translateX(-25%); }
             50% { transform: translateX(-50%); }
-            70% { transform: translateX(-50%); }
             75% { transform: translateX(-75%); }
-            95% { transform: translateX(-75%); }
             100% { transform: translateX(0%); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Tab Linked Directly to Her Active Booking Menu List -->
+    <!-- Top Navigation Menu Framework -->
     <div class="nav-tabs">
         <a href="index.html" class="nav-tab active">Home Lounge</a>
-        <a href="https://squareup.com" target="_blank" class="nav-tab">Live Booking</a>
+        <a href="calendar.html" class="nav-tab">Live Booking</a>
     </div>
 
+    <!-- Main Layout Cover Image -->
     <div class="cover-photo">
         OUTTA BEAUTY
     </div>
 
+    <!-- Custom Luxury Music Section Widget Player (SoundCloud Unlocked Network Frame) -->
     <div class="music-section">
-        <h3>Lounge Station</h3>
-        <p>Vibe with me during your luxury session</p>
+        <h3>NOW PLAYING</h3>
+        <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #8a8894;">Drake — Sweeterman</p>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com"></iframe>
     </div>
 
+    <!-- Main 4-Image Slideshow Frame -->
     <div class="slider">
         <div class="slides">
+            <!-- Your sister's portrait is front and center! -->
             <img src="sister.png" alt="Her Portrait First">
             <img src="1785597649850.png" alt="Showcase 1">
-            <img src="1785596904014.png" alt="New Showcase 2">
-            <img src="1785682282832.jpg" alt="Showcase 3">
+            <img src="1785676750442.jpg" alt="Showcase 2">
+            <img src="1785596904014.jpg" alt="Showcase 3">
         </div>
     </div>
 
