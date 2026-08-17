@@ -40,18 +40,21 @@
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
-        /* Dedicated Booking Calendar Frame - Forces Square to Render Responsive */
+        /* Responsive Safe Booking Calendar Frame */
         .booking-section {
-            margin: 20px auto;
-            width: 95%;
+            margin: 10px auto;
+            width: 100%;
             max-width: 900px;
-            background: #14111f;
-            border-radius: 16px;
-            border: 1px solid #ff007f;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            background: #ffffff; /* White background matches Square's clean interface layout */
+            border-bottom: 3px solid #ff007f;
             overflow: hidden;
-            padding: 15px 5px;
-            min-height: 600px; /* Forces open room on mobile screens for the calendar to load */
+        }
+
+        /* Forces Square framework to load cleanly on mobile viewports */
+        .booking-frame {
+            width: 100%;
+            height: 75vh;
+            border: none;
         }
 
         /* Main Dynamic Layout Banner Cover Image */
@@ -117,17 +120,15 @@
 </head>
 <body>
 
-    <!-- Tabs Navigation Menu - Pointed to anchor down to the script element layout -->
+    <!-- Tabs Navigation Menu Link Setup -->
     <div class="nav-tabs">
         <a href="#" class="nav-tab active">Home Lounge</a>
         <a href="#booking" class="nav-tab">Live Booking</a>
     </div>
 
-    <!-- Active Top Section: Embedded Live Square Checkout Layout Frame -->
+    <!-- Active Embedded Layout Frame targeting her active portal route directly -->
     <div id="booking" class="booking-section">
-        <!-- Start Square Appointments Embed Code -->
-        <script src="https://square.site"></script>
-        <!-- End Square Appointments Embed Code -->
+        <iframe class="booking-frame" src="https://squareup.com"></iframe>
     </div>
 
     <!-- Main Layout Cover Image -->
