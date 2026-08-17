@@ -26,36 +26,31 @@
         <a href="https://squareup.com" target="_blank" style="color: #ffffff; text-decoration: none; font-weight: bold; font-size: 13px; letter-spacing: 1px;">LIVE BOOKING</a>
     </nav>
 
-    <!-- 2. MAIN LOGO HEADER AREA -->
-    <div style="text-align: center; margin: 40px auto 30px auto; max-width: 500px; padding: 0 20px;">
-        <!-- Heart Image Icon -->
-        <div style="color: #ff007f; font-size: 50px; margin-bottom: 5px; line-height: 1;">❤️</div>
-        <!-- Business Logo Text -->
-        <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: bold; letter-spacing: 2px;">OUTTA BEAUTY</h1>
-        <div style="color: #ff007f; font-style: italic; font-size: 28px; font-family: cursive; margin-top: -5px;">Outta Beauty</div>
+    <!-- 2. MAIN LOGO HEADER AREA (Using your actual uploaded logo file) -->
+    <div style="text-align: center; margin: 40px auto 30px auto; max-width: 500px; padding: 0 20px; display: flex; justify-content: center; align-items: center;">
+        <img src="Original%202.PNG" alt="Outta Beauty Logo" style="max-width: 100%; height: auto; display: block;">
     </div>
 
-    <!-- 3. LOUNGE STATION CAPSULE BOX -->
+    <!-- 3. LOUNGE STATION CAPSULE BOX (Matches your exact screen text) -->
     <div class="lounge-box" style="border: 2px solid #ff007f; border-radius: 15px; padding: 20px; background-color: #121212; text-align: center; margin: 0 auto 20px auto; color: white; max-width: 460px; width: 90%; box-sizing: border-box;">
         <h2 style="color: #ff007f; letter-spacing: 2px; margin-bottom: 5px; font-size: 18px; margin-top: 0;">LOUNGE STATION</h2>
-        <p style="margin: 0; color: #cccccc; font-size: 13px;">Vibe with me during your luxury session</p>
+        <p style="margin: 0; color: #cccccc; font-size: 13px; font-style: italic;">Vibe with me during your luxury session</p>
     </div>
 
-    <!-- 4. AUTOMATIC SLIDESHOW PANEL -->
+    <!-- 4. AUTOMATIC SLIDESHOW PANEL (Sister photo loads instantly first) -->
     <div class="slideshow-panel" style="background-color: #1a1a24; border-radius: 20px; padding: 20px; display: flex; justify-content: center; align-items: center; margin: 0 auto 40px auto; max-width: 460px; width: 90%; box-sizing: border-box;">
-        <!-- Starts with your sister's photo loaded immediately -->
         <img id="loungeSlideshow" src="sister.png" alt="Lounge Showcase" style="max-width: 100%; max-height: 550px; border-radius: 10px; transition: opacity 0.5s ease-in-out; display: block;">
     </div>
 
-    <!-- 5. SLIDESHOW ROTATION SCRIPT -->
+    <!-- 5. SLIDESHOW ROTATION SCRIPT (Set to 1 Minute) -->
     <script>
-        // Array of your exact uploaded repository filenames
+        // Array containing your exact filenames, starting with your sister
         const loungeImages = [
             "sister.png",
             "1785596904014.png",
-            "1785597648050.png",
+            "1785597648050.png", 
             "17856822832.jpg",
-            "Original 2.PNG"
+            "Original%202.PNG"
         ];
 
         let currentImageIndex = 0;
@@ -74,7 +69,7 @@
             }, 500); 
         }
 
-        // Changed from 4000 to 60000 to switch photos exactly every 1 minute
+        // Switches photos automatically every 1 minute (60000ms)
         setInterval(changeImage, 60000);
     </script>
 
