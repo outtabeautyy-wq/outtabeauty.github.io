@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        /* Top Navigation Menu Bar */
+        /* Top Navigation Menu Frame */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -41,19 +41,24 @@
         .nav-tab:hover { color: #ffffff; }
         .nav-tab.active { color: #ff007f; }
 
-        /* 🛠️ RESTORED LOGO STYLE: Corrected image reference back to the original neon asset you want */
+        /* Main Dynamic Layout Banner Cover Image - RESTORED TO ORIGINAL */
         .cover-photo {
             width: 100%;
-            height: 45vh;
-            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/contain no-repeat;
+            height: 35vh;
+            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff007f;
         }
 
-        /* Custom Luxury Welcome Section Box */
+        /* Custom Luxury Welcome Section */
         .music-section {
-            margin: 40px auto 30px auto;
+            margin: 30px auto;
             max-width: 450px;
             padding: 25px;
             background: #14111f;
@@ -64,17 +69,16 @@
         .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
         .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
 
-        /* Slowed 1-Minute Slideshow Framework */
+        /* Slowed 1-Minute Slideshow Framework (Scaled for 5 Images) */
         .slider {
             max-width: 600px;
             position: relative;
-            margin: 30px auto 80px auto;
+            margin: 30px auto 60px auto;
             overflow: hidden;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             background-color: #14111f;
-            padding: 20px 0;
         }
 
         .slides {
@@ -115,8 +119,10 @@
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
-    <!-- Main Layout Cover Image Box -->
-    <div class="cover-photo"></div>
+    <!-- Main Layout Cover Image -->
+    <div class="cover-photo">
+        OUTTA BEAUTY
+    </div>
 
     <!-- Custom Luxury Section -->
     <div class="music-section">
