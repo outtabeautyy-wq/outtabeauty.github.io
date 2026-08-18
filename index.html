@@ -79,34 +79,35 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
             background-color: #14111f;
         }
-      .slides { display: flex; width: 400%; animation: slide-animation 60s infinite; }
+        .slides { display: flex; width: 400%; animation: slide-animation 60s infinite; }
 
-.slides img {
-  width: 25%;
-  height: 500px;
-  object-fit: contain;
-  background-color: #14111f;
-}
+        .slides img {
+            width: 25%;
+            height: 500px;
+            object-fit: contain;
+            background-color: #14111f;
+        }
 
-@keyframes slide-animation {
-  0% { transform: translateX(0%); }
-  20% { transform: translateX(0%); }
-  25% { transform: translateX(-25%); }
-  45% { transform: translateX(-25%); }
-  50% { transform: translateX(-50%); }
-  70% { transform: translateX(-50%); }
-  75% { transform: translateX(-75%); }
-  95% { transform: translateX(-75%); }
-  100% { transform: translateX(0%); }
-}
-
-        
+        @keyframes slide-animation {
+            0% { transform: translateX(0%); }
+            20% { transform: translateX(0%); }
+            25% { transform: translateX(-25%); }
+            45% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            70% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            95% { transform: translateX(-75%); }
+            100% { transform: translateX(0%); }
+        }
+    </style>
+</head>
+<body>
 
     <!-- Fixed Live Booking Tab: Points straight to her 100% accurate online service catalog link -->
     <div class="nav-tabs">
         <a href="index.html" class="nav-tab active">Home Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
- </div> 
+    </div> 
     
     <!-- Main Layout Cover Image -->
     <div class="cover-photo">
@@ -118,39 +119,37 @@
         <h3>Lounge Station</h3>
         <p>Vibe with me during your luxury session</p>
     </div>
-<!-- Main 4-Image Slideshow Frame -->
-  <div class="slider">
-    <div class="slides">
-      <img src="sister.png" alt="Her Portrait First">
-      <img src="1785597649850.png" alt="Showcase 1">
-      <img src="1785596904014.png" alt="New Showcase 2">
-      <img src="17856822832.jpg" alt="Showcase 3">
-    </div>
-  </
 
-    
-         
+    <!-- Main 4-Image Slideshow Frame -->
+    <div class="slider">
+        <div class="slides">
+            <img src="sister.png" alt="Her Portrait First">
+            <img src="1785597649850.png" alt="Showcase 1">
+            <img src="1785596904014.png" alt="New Showcase 2">
+            <img src="17856822832.jpg" alt="Showcase 3">
+        </div>
+    </div>
 
     <!-- Background Audio Element -->
     <audio id="salon-music" loop>
-      <source src="music.mp3" type="audio/mpeg">
+        <source src="music.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Interaction Trigger Script -->
     <script>
-      function playSalonMusic() {
-        var track = document.getElementById("salon-music");
-        track.play().catch(function(e) {
-          console.log("Autoplay paused by browser security policy.");
-        });
-        document.removeEventListener('click', playSalonMusic);
-        document.removeEventListener('touchstart', playSalonMusic);
-        document.removeEventListener('scroll', playSalonMusic);
-      }
+        function playSalonMusic() {
+            var track = document.getElementById("salon-music");
+            track.play().catch(function(e) {
+                console.log("Autoplay paused by browser security policy.");
+            });
+            document.removeEventListener('click', playSalonMusic);
+            document.removeEventListener('touchstart', playSalonMusic);
+            document.removeEventListener('scroll', playSalonMusic);
+        }
 
-      document.addEventListener('click', playSalonMusic);
-      document.addEventListener('touchstart', playSalonMusic);
-      document.addEventListener('scroll', playSalonMusic);
+        document.addEventListener('click', playSalonMusic);
+        document.addEventListener('touchstart', playSalonMusic);
+        document.addEventListener('scroll', playSalonMusic);
     </script>
     
 </body>
