@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        /* Top Navigation Menu Frame - Fixed Three Tabs Layout */
+        /* Top Navigation Menu Frame */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -38,12 +38,8 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .nav-tab.active { 
-            color: #ff007f; 
-        }
-        .nav-tab:hover { 
-            color: #ffffff; 
-        }
+        .nav-tab.active { color: #ff007f; }
+        .nav-tab:hover { color: #ffffff; }
 
         /* Main Dynamic Layout Banner Cover Image */
         .cover-photo {
@@ -70,21 +66,10 @@
             border: 1px solid #ff007f;
             box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
-        .music-section h3 { 
-            margin: 0 0 10px 0; 
-            font-size: 1.2rem; 
-            color: #ff007f; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-        }
-        .music-section p { 
-            margin: 0; 
-            font-size: 0.95rem; 
-            color: #f4f3f7; 
-            font-style: italic; 
-        }
+        .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
+        .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
 
-        /* Slowed 1-Minute Slideshow Framework (Her Exact Specs) */
+        /* Slowed 1-Minute Slideshow Framework (Scaled for 5 Images) */
         .slider {
             max-width: 600px;
             position: relative;
@@ -127,10 +112,9 @@
 </head>
 <body>
 
-    <!-- Fixed Three Tabs Navigation Layout -->
+    <!-- Fixed Live Booking Tab: Two Tabs Only Layout -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab">Home Lounge</a>
-        <a href="worklounge.html" class="nav-tab active">Work Lounge</a>
+        <a href="index.html" class="nav-tab active">Home Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
@@ -145,17 +129,14 @@
         <p>Vibe with me during your luxury session</p>
     </div>
 
-    <!-- Main 5-Image Slideshow Frame for Before & Afters -->
+    <!-- Main 5-Image Slideshow Frame -->
     <div class="slider">
         <div class="slides">
-            <!-- First slide matches your uploaded image name perfectly -->
-            <img src="worklounge.jpeg" alt="Outta Beauty Branding Sign">
-            
-            <!-- Future Before & After Pairs -->
-            <img src="set1-before.png" alt="Set 1 Before Look">
-            <img src="set1-after.png" alt="Set 1 After Look">
-            <img src="set2-before.png" alt="Set 2 Before Look">
-            <img src="set2-after.png" alt="Set 2 After Look">
+            <img src="sister.png" alt="Her Portrait First">
+            <img src="1785597649850.png" alt="Showcase 1">
+            <img src="1785596904014.png" alt="New Showcase 2">
+            <img src="1785682282832.jpg" alt="Showcase 3">
+            <img src="socials.jpeg" alt="Outta Beauty Socials">
         </div>
     </div>
 
@@ -164,7 +145,7 @@
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Interaction Trigger Script -->
+    <!-- Interaction Trigger Script from your photo -->
     <script>
         function playSalonMusic() {
             var track = document.getElementById("salon-music");
@@ -175,6 +156,7 @@
             document.removeEventListener('touchstart', playSalonMusic);
             document.removeEventListener('scroll', playSalonMusic);
         }
+
         document.addEventListener('click', playSalonMusic);
         document.addEventListener('touchstart', playSalonMusic);
         document.addEventListener('scroll', playSalonMusic);
