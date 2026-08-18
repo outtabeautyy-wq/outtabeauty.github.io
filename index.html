@@ -56,7 +56,7 @@
             text-shadow: 0 0 15px #ff007f;
         }
 
-        /* Custom Luxury Welcome Section */
+        /* Custom Luxury Section */
         .music-section { 
             margin: 30px auto; 
             max-width: 450px; 
@@ -83,39 +83,37 @@
         
         .slides { 
             display: flex; 
-            width: 500%; 
-            animation: slide-animation 75s infinite; 
+            width: 100%; 
         }
 
-        .slides img {
-            width: 20%; 
-            height: 500px;
-            object-fit: contain;
+        .slides .coming-soon-box {
+            width: 100%; 
+            padding: 50px 20px;
+            box-sizing: border-box;
             background-color: #14111f;
         }
 
-        /* Fluid Animation Loop keeping her exact timing layout with 5 distinct stops */
-        @keyframes slide-animation {
-            0% { transform: translateX(0%); }
-            16% { transform: translateX(0%); }
-            20% { transform: translateX(-20%); }
-            36% { transform: translateX(-20%); }
-            40% { transform: translateX(-40%); }
-            56% { transform: translateX(-40%); }
-            60% { transform: translateX(-60%); }
-            76% { transform: translateX(-60%); }
-            80% { transform: translateX(-80%); } 
-            96% { transform: translateX(-80%); }
-            100% { transform: translateX(0%); }  
+        .coming-soon-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 15px;
+            background: rgba(255, 0, 127, 0.1);
+            border: 1px solid #ff007f;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #ff007f;
+            text-transform: uppercase;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Live Booking Tab: Centered 3-Tab Menu Layout -->
+    <!-- Centered 3-Tab Menu (Highlights Work Lounge as Active Here) -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab active">Home Lounge</a>
-        <a href="worklounge.html" class="nav-tab">Work Lounge</a>
+        <a href="index.html" class="nav-tab">Home Lounge</a>
+        <a href="worklounge.html" class="nav-tab active">Work Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
@@ -130,14 +128,14 @@
         <p>Vibe with me during your luxury session</p>
     </div>
 
-    <!-- Main 5-Image Slideshow Frame -->
+    <!-- Main 4-Image Slideshow Frame (Holding Temporary Before & After Content) -->
     <div class="slider">
         <div class="slides">
-            <img src="sister.png" alt="Her Portrait First">
-            <img src="1785597649850.png" alt="Showcase 1">
-            <img src="1785596904014.png" alt="New Showcase 2">
-            <img src="1785682282832.jpg" alt="Showcase 3">
-            <img src="socials.jpeg" alt="Outta Beauty Socials">
+            <div class="coming-soon-box">
+                <h2 style="color: #ff007f; letter-spacing: 2px; margin: 0 0 10px 0; font-size: 1.5rem; text-transform: uppercase;">Before &amp; After</h2>
+                <p style="color: #f4f3f7; max-width: 400px; margin: 0 auto; font-size: 1rem; line-height: 1.6;">Our interactive transformation portfolio slideshow loop is currently being curated to bring you pure lash and brow inspiration.</p>
+                <span class="coming-soon-badge">Dropping Soon</span>
+            </div>
         </div>
     </div>
 
