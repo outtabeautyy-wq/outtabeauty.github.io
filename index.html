@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
     <style>
-        /* Smooth scrolling when clicking the navigation links */
-        html {
-            scroll-behavior: smooth;
-        }
-
         body { 
             background-color: #0c0914; 
             color: #f4f3f7; 
@@ -20,7 +15,7 @@
             text-align: center;
         }
 
-        /* Top Navigation Menu Bar */
+        /* Top Navigation Menu Frame */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -43,22 +38,27 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .nav-tab:hover { color: #ffffff; }
         .nav-tab.active { color: #ff007f; }
+        .nav-tab:hover { color: #ffffff; }
 
-        /* Main Dynamic Layout Banner Cover Image Box - Her Cursive Glow Logo Asset */
+        /* Main Dynamic Layout Banner Cover Image */
         .cover-photo {
             width: 100%;
-            height: 45vh;
-            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('worklounge.jpeg') center/cover no-repeat;
+            height: 35vh;
+            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff007f;
         }
 
-        /* Custom Luxury Welcome Section Box */
+        /* Custom Luxury Welcome Section */
         .music-section {
-            margin: 40px auto 30px auto;
+            margin: 30px auto;
             max-width: 450px;
             padding: 25px;
             background: #14111f;
@@ -69,17 +69,16 @@
         .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
         .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
 
-        /* Moving Slideshow Framework */
+        /* Slowed 1-Minute Slideshow Framework (Scaled for 5 Images) */
         .slider {
             max-width: 600px;
             position: relative;
-            margin: 30px auto 40px auto;
+            margin: 30px auto 60px auto;
             overflow: hidden;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             background-color: #14111f;
-            padding: 20px 0;
         }
 
         .slides {
@@ -93,56 +92,6 @@
             height: 500px;
             object-fit: contain;
             background-color: #14111f;
-        }
-
-        /* 🌟 DISTINCT WORK LOUNGE AREA - Placed down below so both sections stay live at once */
-        .work-lounge-container {
-            margin: 80px auto 40px auto;
-            max-width: 800px;
-            padding: 40px 20px;
-            background: #14111f;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 0, 127, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-        }
-        .work-lounge-container h2 {
-            color: #ff007f;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 1.8rem;
-            margin: 0 0 10px 0;
-            text-shadow: 0 0 10px #ff007f;
-        }
-        .work-lounge-container p {
-            color: #a5a2b0;
-            font-style: italic;
-            font-size: 1rem;
-            margin: 0 0 30px 0;
-        }
-
-        /* Action Booking Button Link */
-        .booking-wrap {
-            margin: 40px auto 20px auto;
-        }
-        .luxury-book-btn {
-            display: inline-block;
-            background-color: #ff007f;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 15px 40px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            border-radius: 30px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            box-shadow: 0 0 25px rgba(255, 0, 127, 0.6);
-            transition: all 0.3s ease;
-        }
-        .luxury-book-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 35px #ff007f;
-            background-color: #ffffff;
-            color: #ff007f;
         }
 
         /* Fluid Animation Loop keeping her exact timing layout with 5 distinct stops */
@@ -163,15 +112,16 @@
 </head>
 <body>
 
-    <!-- Top Navigation Menu Bar linking perfectly on one single page layout -->
+    <!-- Fixed Live Booking Tab: Two Tabs Only Layout -->
     <div class="nav-tabs">
         <a href="index.html" class="nav-tab active">Home Lounge</a>
-        <a href="#transformations" class="nav-tab">Work Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
-    <!-- Main Layout Cover Image Box -->
-    <div class="cover-photo"></div>
+    <!-- Main Layout Cover Image -->
+    <div class="cover-photo">
+        OUTTA BEAUTY
+    </div>
 
     <!-- Custom Luxury Section -->
     <div class="music-section">
@@ -190,28 +140,12 @@
         </div>
     </div>
 
-    <!-- 🌟 NEW SECURE WORK LOUNGE AREA - Keeps your logo headers perfectly on top and bottom -->
-    <div class="cover-photo" style="margin-top: 80px;"></div> <!-- TOP WORK LOUNGE LOGO BANNER -->
-
-    <div id="transformations" class="work-lounge-container">
-        <h2>Before &amp; After Transformations</h2>
-        <p style="color: #ff007f; font-weight: bold; letter-spacing: 1px;">✨ Coming Soon... ✨</p>
-        <p>Witness luxury brow and lash transformations</p>
-
-        <!-- Booking button Link -->
-        <div class="booking-wrap">
-            <a href="livecalendar.html" target="_blank" class="luxury-book-btn">Secure Your Appointment</a>
-        </div>
-    </div>
-
-    <div class="cover-photo" style="margin-top: 40px; margin-bottom: 60px;"></div> <!-- BOTTOM WORK LOUNGE LOGO BANNER -->
-
     <!-- Background Audio Element -->
     <audio id="salon-music" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Interaction Trigger Script -->
+    <!-- Interaction Trigger Script from your photo -->
     <script>
         function playSalonMusic() {
             var track = document.getElementById("salon-music");
