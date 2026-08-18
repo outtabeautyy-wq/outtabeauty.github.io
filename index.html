@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
+    <title>Outta Beauty | Work Lounge Gallery</title>
     <style>
         body { 
             background-color: #0c0914; 
@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        /* Top Navigation Menu Frame with 3 Balanced Tabs */
+        /* Top Navigation Menu Frame matching the home page design perfectly */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -38,47 +38,55 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
+        .nav-tab.active { color: #ff007f; text-shadow: 0 0 10px #ff007f; }
 
-        /* Main Dynamic Layout Banner Cover Image */
-        .cover-photo {
+        /* Top & Bottom Banner Frame formatting to handle worklounge.jpeg beautifully */
+        .cover-photo-banner {
             width: 100%;
-            height: 35vh;
-            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
+            height: 45vh;
+            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('worklounge.jpeg') center/contain no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            letter-spacing: 4px;
-            color: #ffffff;
-            text-shadow: 0 0 15px #ff007f;
         }
 
-        /* Custom Luxury Welcome Section */
-        .music-section {
-            margin: 30px auto;
-            max-width: 450px;
-            padding: 25px;
+        /* Unique Premium Content Section Layout */
+        .gallery-container {
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 40px 20px;
             background: #14111f;
             border-radius: 16px;
-            border: 1px solid #ff007f;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
-        .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
-        .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
+        .gallery-container h2 {
+            color: #ff007f;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            text-shadow: 0 0 10px #ff007f;
+        }
+        .gallery-container p {
+            color: #a5a2b0;
+            font-style: italic;
+            font-size: 1rem;
+            margin: 0 0 30px 0;
+        }
 
         /* Slowed 1-Minute Slideshow Framework (Scaled for 5 Images) */
         .slider {
             max-width: 600px;
             position: relative;
-            margin: 30px auto 60px auto;
+            margin: 30px auto 40px auto;
             overflow: hidden;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             background-color: #14111f;
+            padding: 20px 0;
         }
 
         .slides {
@@ -94,7 +102,32 @@
             background-color: #14111f;
         }
 
-        /* Fluid Animation Loop keeping her exact timing layout with 5 distinct stops */
+        /* Luxury Call to Action Booking Link */
+        .booking-wrap {
+            margin: 40px auto 20px auto;
+        }
+        .luxury-book-btn {
+            display: inline-block;
+            background-color: #ff007f;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            border-radius: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.6);
+            transition: all 0.3s ease;
+        }
+        .luxury-book-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px #ff007f;
+            background-color: #ffffff;
+            color: #ff007f;
+        }
+
+        /* 🌟 ADDED: Fluid Animation Loop keeping her exact timing layout with 5 distinct stops */
         @keyframes slide-animation {
             0% { transform: translateX(0%); }
             16% { transform: translateX(0%); }
@@ -108,62 +141,45 @@
             96% { transform: translateX(-80%); }
             100% { transform: translateX(0%); }
         }
-
-        /* NEW STYLE: Dedicated Work Lounge container with its own background image */
-        .work-lounge-box {
-            max-width: 800px;
-            margin: 0 auto 60px auto;
-            padding: 60px 20px;
-            border-radius: 16px;
-            border: 2px solid #ff007f;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            
-            /* This puts worklounge.jpeg inside this section ONLY, with a dark filter so slideshows stay visible */
-            background: linear-gradient(rgba(12, 9, 20, 0.75), rgba(12, 9, 20, 0.75)), url('worklounge.jpeg') center/cover no-repeat;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Menu Bar with Work Lounge in the middle -->
+    <!-- Top Navigation Menu Bar linking back to your pristine index.html homepage -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab active">Home Lounge</a>
-        <a href="#work-lounge" class="nav-tab">Work Lounge</a>
+        <a href="index.html" class="nav-tab">Home Lounge</a>
+        <a href="worklounge.html" class="nav-tab active">Work Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
-    
-    <!-- Main Layout Cover Image -->
-    <div class="cover-photo">
-        OUTTA BEAUTY
-    </div>
 
-    <!-- Custom Luxury Section -->
-    <div class="music-section">
-        <h3>Lounge Station</h3>
-        <p>Vibe with me during your luxury session</p>
-    </div>
+    <!-- TOP LOGO BANNER (worklounge.jpeg) -->
+    <div class="cover-photo-banner"></div>
 
-    <!-- Main 5-Image Slideshow Frame -->
-    <div class="slider">
-        <div class="slides">
-            <img src="sister.png" alt="Her Portrait First">
-            <img src="1785597649850.png" alt="Showcase 1">
-            <img src="1785596904014.png" alt="New Showcase 2">
-            <img src="1785682282832.jpg" alt="Showcase 3">
-            <img src="socials.jpeg" alt="Outta Beauty Socials">
+    <!-- MAIN PORTFOLIO GRID GALLERY SPACE -->
+    <div class="gallery-container">
+        <h2>Before &amp; After Transformations</h2>
+        <p style="color: #ff007f; font-weight: bold; letter-spacing: 1px;">✨ Coming Soon... ✨</p>
+        <p>Witness luxury brow and lash transformations</p>
+
+        <!-- Main Moving Slideshow Frame displaying her portfolio collections -->
+        <div class="slider">
+            <div class="slides">
+                <img src="sister.png" alt="Her Portrait First">
+                <img src="1785597649850.png" alt="Showcase 1">
+                <img src="1785596904014.png" alt="New Showcase 2">
+                <img src="1785682282832.jpg" alt="Showcase 3">
+                <img src="socials.jpeg" alt="Outta Beauty Socials">
+            </div>
+        </div>
+
+        <!-- Integrated scheduling action button -->
+        <div class="booking-wrap">
+            <a href="livecalendar.html" target="_blank" class="luxury-book-btn">Secure Your Appointment</a>
         </div>
     </div>
 
-    <!-- WORK LOUNGE SECTION: Sitting in the middle with the logo image behind it -->
-    <div id="work-lounge" class="work-lounge-box">
-        <h2 style="color: #ff007f; text-transform: uppercase; letter-spacing: 3px; font-size: 1.6rem; margin-top: 0; text-shadow: 0 0 10px #ff007f;">Our Work Lounge</h2>
-        <p style="color: #ffffff; font-style: italic; font-size: 1rem; margin-bottom: 40px; font-weight: 500;">Before &amp; After transformations coming soon...</p>
-        
-        <!-- Future Slideshows placeholder container -->
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; min-height: 150px;">
-            <!-- Your sister can drop her before & after slideshow elements right here later -->
-        </div>
-    </div>
+    <!-- BOTTOM LOGO BANNER (worklounge.jpeg) -->
+    <div class="cover-photo-banner" style="margin-top: 40px; margin-bottom: 40px;"></div>
 
     <!-- Background Audio Element -->
     <audio id="salon-music" loop>
