@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        /* Top Navigation Menu Frame */
+        /* Top Navigation Menu Frame with 3 Balanced Tabs */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -108,13 +108,27 @@
             96% { transform: translateX(-80%); }
             100% { transform: translateX(0%); }
         }
+
+        /* NEW STYLE: Dedicated Work Lounge container with its own background image */
+        .work-lounge-box {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            padding: 60px 20px;
+            border-radius: 16px;
+            border: 2px solid #ff007f;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            
+            /* This puts worklounge.jpeg inside this section ONLY, with a dark filter so slideshows stay visible */
+            background: linear-gradient(rgba(12, 9, 20, 0.75), rgba(12, 9, 20, 0.75)), url('worklounge.jpeg') center/cover no-repeat;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Live Booking Tab: Two Tabs Only Layout -->
+    <!-- Top Navigation Menu Bar with Work Lounge in the middle -->
     <div class="nav-tabs">
         <a href="index.html" class="nav-tab active">Home Lounge</a>
+        <a href="#work-lounge" class="nav-tab">Work Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
@@ -140,12 +154,23 @@
         </div>
     </div>
 
+    <!-- WORK LOUNGE SECTION: Sitting in the middle with the logo image behind it -->
+    <div id="work-lounge" class="work-lounge-box">
+        <h2 style="color: #ff007f; text-transform: uppercase; letter-spacing: 3px; font-size: 1.6rem; margin-top: 0; text-shadow: 0 0 10px #ff007f;">Our Work Lounge</h2>
+        <p style="color: #ffffff; font-style: italic; font-size: 1rem; margin-bottom: 40px; font-weight: 500;">Before &amp; After transformations coming soon...</p>
+        
+        <!-- Future Slideshows placeholder container -->
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; min-height: 150px;">
+            <!-- Your sister can drop her before & after slideshow elements right here later -->
+        </div>
+    </div>
+
     <!-- Background Audio Element -->
     <audio id="salon-music" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Interaction Trigger Script from your photo -->
+    <!-- Interaction Trigger Script -->
     <script>
         function playSalonMusic() {
             var track = document.getElementById("salon-music");
