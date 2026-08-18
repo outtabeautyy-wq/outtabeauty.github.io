@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Lounge</title>
+    <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
     <style>
         body { 
             background-color: #0c0914; 
@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        /* Top Navigation Menu Frame - 3 Centered Tabs */
+        /* Top Navigation Menu Frame - Two Tabs Only */
         .nav-tabs {
             display: flex;
             justify-content: space-around;
@@ -34,71 +34,109 @@
             color: #8a8894;
             text-decoration: none;
             flex: 1;
-            text-align: center;
             cursor: pointer;
             transition: 0.3s;
         }
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
-        /* Main Layout Banner Cover Image - Safely Encodes the Filename Space */
+        /* Main Dynamic Layout Banner Cover Image */
         .cover-photo {
             width: 100%;
             height: 35vh;
-            background: linear-gradient(rgba(12, 9, 20, 0.4), rgba(12, 9, 20, 0.4)), url('Original%202.PNG') center/cover no-repeat;
+            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid rgba(255, 0, 127, 0.3);
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff007f;
         }
 
         /* Custom Luxury Welcome Section */
-        .lounge-title-box { 
-            margin: 40px auto; 
+        .music-section { 
+            margin: 30px auto; 
             max-width: 450px; 
-            padding: 30px; 
+            padding: 25px; 
             background: #14111f; 
             border-radius: 16px; 
             border: 1px solid #ff007f;
             box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
         }
-        .lounge-title-box h3 { margin: 0 0 10px 0; font-size: 1.4rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
-        .lounge-title-box p { margin: 0; font-size: 1rem; color: #f4f3f7; line-height: 1.6; }
+        .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
+        .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
+
+        /* Slowed 1-Minute Slideshow Framework (Scaled for 5 Images) */
+        .slider { 
+            max-width: 600px; 
+            position: relative; 
+            margin: 30px auto 60px auto; 
+            overflow: hidden; 
+            border-radius: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+            background-color: #14111f;
+        }
         
-        .coming-soon-badge {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 6px 15px;
-            background: rgba(255, 0, 127, 0.1);
-            border: 1px solid #ff007f;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: #ff007f;
-            text-transform: uppercase;
+        .slides { 
+            display: flex; 
+            width: 500%; /* Spaced to fit exactly 5 photos row-wide */
+            animation: slide-animation 75s infinite; /* Adds a bit extra loop time for 5 slides */
+        }
+
+        .slides img {
+            width: 20%; /* Each photo takes up exactly 1/5th of the slider container width */
+            height: 500px;
+            object-fit: contain;
+            background-color: #14111f;
+        }
+
+        /* Fluid Animation Loop keeping her exact timing layout with 5 distinct stops */
+        @keyframes slide-animation {
+            0% { transform: translateX(0%); }
+            16% { transform: translateX(0%); }
+            20% { transform: translateX(-20%); }
+            36% { transform: translateX(-20%); }
+            40% { transform: translateX(-40%); }
+            56% { transform: translateX(-40%); }
+            60% { transform: translateX(-60%); }
+            76% { transform: translateX(-60%); }
+            80% { transform: translateX(-80%); } /* Pauses elegantly on Socials flyer last */
+            96% { transform: translateX(-80%); }
+            100% { transform: translateX(0%); }  /* Glides right back to her portrait */
         }
     </style>
 </head>
 <body>
 
-    <!-- Centered 3-Tab Menu -->
+    <!-- Fixed Live Booking Tab -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab">Home Lounge</a>
-        <a href="worklounge.html" class="nav-tab active">Work Lounge</a>
+        <a href="index.html" class="nav-tab active">Home Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
-    <!-- Main Layout Cover Image Graphic Backdrop -->
+    <!-- Main Layout Cover Image -->
     <div class="cover-photo">
-        &nbsp;
+        OUTTA BEAUTY
     </div>
 
-    <!-- Page Title Greeting - Displays the Before and After Context -->
-    <div class="lounge-title-box">
-        <h3>Before &amp; After</h3>
-        <p style="font-style: italic; margin-bottom: 15px; color: #8a8894;">Real results, luxury precision.</p>
-        <p>Our interactive transformation portfolio slideshow loop is currently being curated to bring you pure lash and brow inspiration.</p>
-        <span class="coming-soon-badge">Dropping Soon</span>
+    <!-- Custom Luxury Section -->
+    <div class="music-section">
+        <h3>Lounge Station</h3>
+        <p>Vibe with me during your luxury session</p>
+    </div>
+
+    <!-- Main 5-Image Slideshow Frame -->
+    <div class="slider">
+        <div class="slides">
+            <img src="sister.png" alt="Her Portrait First">
+            <img src="1785597649850.png" alt="Showcase 1">
+            <img src="1785596904014.png" alt="New Showcase 2">
+            <img src="1785682282832.jpg" alt="Showcase 3">
+            <img src="socials.jpeg" alt="Outta Beauty Socials">
+        </div>
     </div>
 
     <!-- Background Audio Element -->
