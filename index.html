@@ -152,30 +152,21 @@
       document.addEventListener('touchstart', playSalonMusic);
       document.addEventListener('scroll', playSalonMusic);
     </script>
-    <!-- 1. Loads the visual icons -->
-<link rel="stylesheet" href="https://jsdelivr.net">
-
-<!-- 2. The social layout links -->
+    <!-- 1. The social layout links (Using stable system icons) -->
 <div class="outta-socials-container">
   <p class="socials-header">FOLLOW THE VIBE</p>
   <div class="socials-row">
-    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="glow-icon">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="glow-icon">
-      <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="glow-icon">
-      <i class="fab fa-facebook-f"></i>
-    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="glow-icon">📸</a>
+    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="glow-icon">🎵</a>
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="glow-icon">👤</a>
   </div>
 </div>
 
-<!-- 3. The design styles for the luxury neon glow -->
+<!-- 2. The design styles for the luxury neon glow -->
 <style>
 .outta-socials-container {
   text-align: center;
-  padding: 60px 20px 40px 20px; 
+  padding: 50px 20px 40px 20px; 
   background: transparent !important; 
   width: 100%;
   box-sizing: border-box;
@@ -183,29 +174,31 @@
 
 .socials-header {
   color: #ffffff;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 4px; 
   margin-bottom: 24px;
-  opacity: 0.7;
+  opacity: 0.8;
   font-family: sans-serif;
 }
 
 .socials-row {
   display: flex;
   justify-content: center;
-  gap: 35px; 
+  gap: 40px; 
 }
 
 .glow-icon {
-  font-size: 32px; 
-  color: #ffffff; 
+  font-size: 28px; 
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
+  cursor: pointer;
+  filter: grayscale(1) brightness(2); /* Makes them match her premium white text by default */
 }
 
+/* Beautiful Hot Pink Neon Glow on Hover or Touch */
 .glow-icon:hover {
-  color: #ff007f !important; 
+  filter: grayscale(0) brightness(1); /* Restores full luxury visual coloring */
   text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
   transform: translateY(-4px); 
 }
