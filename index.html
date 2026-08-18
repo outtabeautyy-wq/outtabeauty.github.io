@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outta Beauty | Our Work Lounge Gallery</title>
+    <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
     <style>
+        /* Smooth scrolling when clicking the navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body { 
             background-color: #0c0914; 
             color: #f4f3f7; 
@@ -39,48 +44,32 @@
             transition: 0.3s;
         }
         .nav-tab:hover { color: #ffffff; }
-        .nav-tab.active { color: #ff007f; text-shadow: 0 0 10px #ff007f; }
+        .nav-tab.active { color: #ff007f; }
 
-        /* Logo Banner Frame */
-        .cover-photo-banner {
+        /* Main Dynamic Layout Banner Cover Image Box - Her Cursive Glow Logo Asset */
+        .cover-photo {
             width: 100%;
             height: 45vh;
-            background-color: #0c0914;
-            background-image: url('worklounge.jpeg');
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
+            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('worklounge.jpeg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* Content Section Layout Box */
-        .gallery-container {
-            margin: 50px auto;
-            max-width: 800px;
-            padding: 40px 20px;
+        /* Custom Luxury Welcome Section Box */
+        .music-section {
+            margin: 40px auto 30px auto;
+            max-width: 450px;
+            padding: 25px;
             background: #14111f;
             border-radius: 16px;
-            border: 1px solid rgba(255, 0, 127, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid #ff007f;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
-        .gallery-container h2 {
-            color: #ff007f;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 1.8rem;
-            margin: 0 0 10px 0;
-            text-shadow: 0 0 10px #ff007f;
-        }
-        .gallery-container p {
-            color: #a5a2b0;
-            font-style: italic;
-            font-size: 1rem;
-            margin: 0 0 30px 0;
-        }
+        .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
+        .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
 
-        /* Portfolio Image Slideshow Frame */
+        /* Moving Slideshow Framework */
         .slider {
             max-width: 600px;
             position: relative;
@@ -104,6 +93,31 @@
             height: 500px;
             object-fit: contain;
             background-color: #14111f;
+        }
+
+        /* 🌟 DISTINCT WORK LOUNGE AREA - Placed down below so both sections stay live at once */
+        .work-lounge-container {
+            margin: 80px auto 40px auto;
+            max-width: 800px;
+            padding: 40px 20px;
+            background: #14111f;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        .work-lounge-container h2 {
+            color: #ff007f;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            text-shadow: 0 0 10px #ff007f;
+        }
+        .work-lounge-container p {
+            color: #a5a2b0;
+            font-style: italic;
+            font-size: 1rem;
+            margin: 0 0 30px 0;
         }
 
         /* Action Booking Button Link */
@@ -131,7 +145,7 @@
             color: #ff007f;
         }
 
-        /* Fluid Animation Loop */
+        /* Fluid Animation Loop keeping her exact timing layout with 5 distinct stops */
         @keyframes slide-animation {
             0% { transform: translateX(0%); }
             16% { transform: translateX(0%); }
@@ -149,32 +163,40 @@
 </head>
 <body>
 
-    <!-- Top Navigation Menu Bar -->
+    <!-- Top Navigation Menu Bar linking perfectly on one single page layout -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab">Home Lounge</a>
-        <a href="worklounge.html" class="nav-tab active">Work Lounge</a>
+        <a href="#" class="nav-tab active">Home Lounge</a>
+        <a href="#transformations" class="nav-tab">Work Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
+    
+    <!-- Main Layout Cover Image Box -->
+    <div class="cover-photo"></div>
 
-    <!-- TOP LOGO BANNER FRAME -->
-    <div class="cover-photo-banner"></div>
+    <!-- Custom Luxury Section -->
+    <div class="music-section">
+        <h3>Lounge Station</h3>
+        <p>Vibe with me during your luxury session</p>
+    </div>
 
-    <!-- MAIN PORTFOLIO CONTENT AREA -->
-    <div class="gallery-container">
+    <!-- Main 5-Image Slideshow Frame -->
+    <div class="slider">
+        <div class="slides">
+            <img src="sister.png" alt="Her Portrait First">
+            <img src="1785597649850.png" alt="Showcase 1">
+            <img src="1785596904014.png" alt="New Showcase 2">
+            <img src="1785682282832.jpg" alt="Showcase 3">
+            <img src="socials.jpeg" alt="Outta Beauty Socials">
+        </div>
+    </div>
+
+    <!-- 🌟 NEW SECURE WORK LOUNGE AREA - Keeps your logo headers perfectly on top and bottom -->
+    <div class="cover-photo" style="margin-top: 80px;"></div> <!-- TOP WORK LOUNGE LOGO BANNER -->
+
+    <div id="transformations" class="work-lounge-container">
         <h2>Before &amp; After Transformations</h2>
         <p style="color: #ff007f; font-weight: bold; letter-spacing: 1px;">✨ Coming Soon... ✨</p>
         <p>Witness luxury brow and lash transformations</p>
-
-        <!-- Moving Portrait Gallery Slideshow Grid -->
-        <div class="slider">
-            <div class="slides">
-                <img src="sister.png" alt="Her Portrait First">
-                <img src="1785597649850.png" alt="Showcase 1">
-                <img src="1785596904014.png" alt="New Showcase 2">
-                <img src="1785682282832.jpg" alt="Showcase 3">
-                <img src="socials.jpeg" alt="Outta Beauty Socials">
-            </div>
-        </div>
 
         <!-- Booking button Link -->
         <div class="booking-wrap">
@@ -182,24 +204,17 @@
         </div>
     </div>
 
-    <!-- BOTTOM LOGO BANNER FRAME -->
-    <div class="cover-photo-banner" style="margin-top: 40px; margin-bottom: 40px;"></div>
+    <div class="cover-photo" style="margin-top: 40px; margin-bottom: 60px;"></div> <!-- BOTTOM WORK LOUNGE LOGO BANNER -->
 
     <!-- Background Audio Element -->
     <audio id="salon-music" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 🛠️ UPDATED SCRIPT: Keeps music state seamless when changing links -->
+    <!-- Interaction Trigger Script -->
     <script>
-        var track = document.getElementById("salon-music");
-
-        // Checks if music was playing on the last page and restores the time position
-        if (localStorage.getItem("musicTime")) {
-            track.currentTime = parseFloat(localStorage.getItem("musicTime"));
-        }
-
         function playSalonMusic() {
+            var track = document.getElementById("salon-music");
             track.play().catch(function(e) {
                 console.log("Autoplay paused by browser security policy.");
             });
@@ -208,31 +223,9 @@
             document.removeEventListener('scroll', playSalonMusic);
         }
 
-        // Saves current track runtime position continuously before navigating away
-        setInterval(function() {
-            if (!track.paused) {
-                localStorage.setItem("musicTime", track.currentTime);
-                localStorage.setItem("musicPlaying", "true");
-            } else {
-                localStorage.setItem("musicPlaying", "false");
-            }
-        }, 300);
-
-        // Auto-plays on page change if music was already active
-        if (localStorage.getItem("musicPlaying") === "true") {
-            window.addEventListener('load', function() {
-                track.play().catch(function() {
-                    // Falls back to user click if browser policy blocks it
-                    document.addEventListener('click', playSalonMusic);
-                    document.addEventListener('touchstart', playSalonMusic);
-                    document.addEventListener('scroll', playSalonMusic);
-                });
-            });
-        } else {
-            document.addEventListener('click', playSalonMusic);
-            document.addEventListener('touchstart', playSalonMusic);
-            document.addEventListener('scroll', playSalonMusic);
-        }
+        document.addEventListener('click', playSalonMusic);
+        document.addEventListener('touchstart', playSalonMusic);
+        document.addEventListener('scroll', playSalonMusic);
     </script>
     
 </body>
