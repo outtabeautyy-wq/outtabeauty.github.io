@@ -68,7 +68,7 @@
         .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
         .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
 
-        /* Slowed 1-Minute Slideshow Framework (60 Seconds Duration) */
+        /* Slowed 1-Minute Slideshow Framework (Scaled for 5 Images) */
         .slider { 
             max-width: 600px; 
             position: relative; 
@@ -79,31 +79,39 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
             background-color: #14111f;
         }
-        .slides { display: flex; width: 400%; animation: slide-animation 60s infinite; }
+        
+        .slides { 
+            display: flex; 
+            width: 500%; /* Spaced to fit exactly 5 photos row-wide */
+            animation: slide-animation 75s infinite; /* Adds a bit extra loop time for 5 slides */
+        }
 
         .slides img {
-            width: 25%;
+            width: 20%; /* Each photo takes up exactly 1/5th of the slider container width */
             height: 500px;
             object-fit: contain;
             background-color: #14111f;
         }
 
+        /* Fluid Animation Loop keeping her exact timing layout with 5 distinct stops */
         @keyframes slide-animation {
             0% { transform: translateX(0%); }
-            20% { transform: translateX(0%); }
-            25% { transform: translateX(-25%); }
-            45% { transform: translateX(-25%); }
-            50% { transform: translateX(-50%); }
-            70% { transform: translateX(-50%); }
-            75% { transform: translateX(-75%); }
-            95% { transform: translateX(-75%); }
-            100% { transform: translateX(0%); }
+            16% { transform: translateX(0%); }
+            20% { transform: translateX(-20%); }
+            36% { transform: translateX(-20%); }
+            40% { transform: translateX(-40%); }
+            56% { transform: translateX(-40%); }
+            60% { transform: translateX(-60%); }
+            76% { transform: translateX(-60%); }
+            80% { transform: translateX(-80%); } /* Pauses elegantly on Socials flyer last */
+            96% { transform: translateX(-80%); }
+            100% { transform: translateX(0%); }  /* Glides right back to her portrait */
         }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Live Booking Tab: Points straight to her 100% accurate online service catalog link -->
+    <!-- Fixed Live Booking Tab -->
     <div class="nav-tabs">
         <a href="index.html" class="nav-tab active">Home Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
@@ -120,15 +128,15 @@
         <p>Vibe with me during your luxury session</p>
     </div>
 
-    <!-- Main 4-Image Slideshow Frame -->
+    <!-- Main 5-Image Slideshow Frame -->
     <div class="slider">
         <div class="slides">
             <img src="sister.png" alt="Her Portrait First">
             <img src="1785597649850.png" alt="Showcase 1">
             <img src="1785596904014.png" alt="New Showcase 2">
             <img src="1785682282832.jpg" alt="Showcase 3">
-            
-      </div>
+            <img src="socials.jpeg" alt="Outta Beauty Socials">
+        </div>
     </div>
 
     <!-- Background Audio Element -->
