@@ -46,8 +46,18 @@
         /* Main Section Container Workspace */
         .main-content {
             max-width: 550px;
-            margin: 60px auto 60px auto;
+            margin: 0 auto;
             padding: 0 20px;
+            min-height: calc(100vh - 50px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        /* Top Content Block wrapper */
+        .top-content {
+            margin-top: 50px;
         }
 
         /* Centered Header Layout text */
@@ -56,24 +66,34 @@
             font-size: 2rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             font-weight: bold;
             text-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
         }
 
-        /* Coming Soon Announcement Text */
+        /* Middle Selection Area: Before & After coming soon */
+        .middle-selection {
+            margin: auto 0;
+            padding: 40px 0;
+        }
+
         .coming-soon-tag {
             color: #ffffff;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 60px;
             font-style: italic;
             font-weight: bold;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            line-height: 1.6;
         }
 
-        /* Custom Policy Layout Box Section with translucent dark backing board */
+        /* Bottom Layout elements wrapper */
+        .bottom-content {
+            margin-bottom: 60px;
+        }
+
+        /* Custom Policy Layout Box Section with translucent dark backing board shifted low */
         .policy-card {
             background-color: rgba(20, 17, 31, 0.85);
             border: 1px solid #ff007f;
@@ -81,7 +101,7 @@
             padding: 25px;
             text-align: left;
             box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             backdrop-filter: blur(5px);
         }
 
@@ -100,7 +120,7 @@
             line-height: 1.6;
         }
 
-        /* Custom Luxury Animated Booking Redirect Trigger Button */
+        /* Custom Luxury Animated Booking Redirect Trigger Button shifted low */
         .book-now-button {
             display: inline-block;
             background-color: #ff007f;
@@ -135,19 +155,30 @@
 
     <!-- Main Content Layout Section Workspace Area -->
     <main class="main-content">
-        <h1 class="worklounge-title">Work Lounge</h1>
-        <div class="coming-soon-tag">Before and After Photos Coming Soon</div>
-
-        <!-- Cancellation Policy Block Frame layout section -->
-        <div class="policy-card">
-            <h3>Cancellation Policy</h3>
-            <p>
-                Please note that no-shows as well as cancellations or rescheduling requests made after your appointment start time, are subject to a fee equal to 100% of the service.
-            </p>
+        
+        <div class="top-content">
+            <h1 class="worklounge-title">Work Lounge</h1>
         </div>
 
-        <!-- Direct Action Booking Button Link Trigger Section -->
-        <a href="livecalendar.html" target="_blank" class="book-now-button">Book an Appointment Now</a>
+        <!-- Middle Selection Workspace Area Layout block -->
+        <div class="middle-selection">
+            <div class="coming-soon-tag">Before and After Photos<br>Coming Soon</div>
+        </div>
+
+        <!-- Lower Section Content Block wrapper -->
+        <div class="bottom-content">
+            <!-- Cancellation Policy Block Frame layout section -->
+            <div class="policy-card">
+                <h3>Cancellation Policy</h3>
+                <p>
+                    Please note that no-shows as well as cancellations or rescheduling requests made after your appointment start time, are subject to a fee equal to 100% of the service.
+                </p>
+            </div>
+
+            <!-- Direct Action Booking Button Link Trigger Section -->
+            <a href="livecalendar.html" target="_blank" class="book-now-button">Book an Appointment Now</a>
+        </div>
+
     </main>
 
     <!-- Background Audio Element -->
