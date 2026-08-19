@@ -6,8 +6,8 @@
     <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
     <style>
         body { 
-            /* 1. Sets worklounge.jpeg as the fixed full screen background image */
-            background: linear-gradient(rgba(12, 9, 20, 0.7), rgba(12, 9, 20, 0.7)), url('worklounge.jpeg') center/cover no-repeat fixed;
+            /* Sets worklounge.jpeg as the fixed full screen background image */
+            background: linear-gradient(rgba(12, 9, 20, 0.75), rgba(12, 9, 20, 0.75)), url('worklounge.jpeg') center/cover no-repeat fixed;
             color: #f4f3f7; 
             font-family: 'Segoe UI', Arial, sans-serif; 
             margin: 0; 
@@ -46,71 +46,31 @@
         /* Main Section Container Workspace */
         .main-content {
             max-width: 550px;
-            margin: 40px auto 60px auto;
+            margin: 60px auto 60px auto;
             padding: 0 20px;
         }
 
         /* Centered Header Layout text */
         .worklounge-title {
             color: #ff007f;
-            font-size: 1.6rem;
+            font-size: 2rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+            text-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
         }
 
-        /* Coming Soon Badge Announcement */
+        /* Coming Soon Announcement Text */
         .coming-soon-tag {
             color: #ffffff;
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
             font-style: italic;
-            opacity: 0.9;
-        }
-
-        /* 2. Before & After Swipable Slideshow Element Window */
-        .slider {
-            width: 100%;
-            margin-bottom: 35px;
-            overflow-x: auto; 
-            overflow-y: hidden;
-            border-radius: 16px;
-            border: 1px solid #ff007f;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            background-color: rgba(20, 17, 31, 0.8);
-            scroll-snap-type: x mandatory; 
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Hide generic native browser scrollbars */
-        .slider::-webkit-scrollbar { display: none; }
-        .slider { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .slides {
-            display: flex;
-            width: 100%;
-        }
-
-        .slide-item {
-            min-width: 100%;
-            width: 100%;
-            box-sizing: border-box;
-            height: 450px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            scroll-snap-align: start; 
-        }
-
-        .slides img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         /* Custom Policy Layout Box Section with translucent dark backing board */
@@ -121,7 +81,7 @@
             padding: 25px;
             text-align: left;
             box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             backdrop-filter: blur(5px);
         }
 
@@ -150,7 +110,7 @@
             font-weight: bold;
             font-size: 1.1rem;
             letter-spacing: 2px;
-            padding: 15px 45px;
+            padding: 16px 40px;
             border-radius: 50px;
             box-shadow: 0 0 20px #ff007f;
             transition: all 0.3s ease;
@@ -176,17 +136,7 @@
     <!-- Main Content Layout Section Workspace Area -->
     <main class="main-content">
         <h1 class="worklounge-title">Work Lounge</h1>
-        <div class="coming-soon-tag">— Coming Soon —</div>
-
-        <!-- Before & After Slideshow Container Window Slot -->
-        <div class="slider" id="worklounge-slider">
-            <div class="slides">
-                <!-- NOTE: Replace the file names inside the quotation marks with her real before/after image files later -->
-                <div class="slide-item"><img src="sister.png" alt="Before and After Slide 1"></div>
-                <div class="slide-item"><img src="1785597649850.png" alt="Before and After Slide 2"></div>
-                <div class="slide-item"><img src="1785596904014.png" alt="Before and After Slide 3"></div>
-            </div>
-        </div>
+        <div class="coming-soon-tag">Before and After Photos Coming Soon</div>
 
         <!-- Cancellation Policy Block Frame layout section -->
         <div class="policy-card">
@@ -197,7 +147,7 @@
         </div>
 
         <!-- Direct Action Booking Button Link Trigger Section -->
-        <a href="livecalendar.html" target="_blank" class="book-now-button">Book Now!</a>
+        <a href="livecalendar.html" target="_blank" class="book-now-button">Book an Appointment Now</a>
     </main>
 
     <!-- Background Audio Element -->
@@ -205,13 +155,12 @@
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Interactive Touch Control and Autoplay Scripts -->
+    <!-- Interactive Touch Control Script -->
     <script>
-        // --- 1. Music Autoplay Script ---
         function playSalonMusic() {
             var track = document.getElementById("salon-music");
             track.play().catch(function(e) {
-                console.log("Autoplay blocked by safety layout framework rules.");
+                console.log("Autoplay paused by browser security policy.");
             });
             document.removeEventListener('click', playSalonMusic);
             document.removeEventListener('touchstart', playSalonMusic);
@@ -220,32 +169,6 @@
         document.addEventListener('click', playSalonMusic);
         document.addEventListener('touchstart', playSalonMusic);
         document.addEventListener('scroll', playSalonMusic);
-
-        // --- 2. Slideshow Autoplay Controller ---
-        const slider = document.getElementById('worklounge-slider');
-        const slideItems = document.querySelectorAll('.slide-item');
-        let currentSlide = 0;
-        let autoplayTimer;
-
-        function startAutoplay() {
-            autoplayTimer = setInterval(() => {
-                currentSlide = (currentSlide + 1) % slideItems.length;
-                const slideWidth = slider.clientWidth;
-                slider.scrollTo({
-                    left: currentSlide * slideWidth,
-                    behavior: 'smooth'
-                });
-            }, 5000); // ⏱️ Rotates before & after image frames exactly every 5 seconds
-        }
-
-        slider.addEventListener('scroll', () => {
-            const slideWidth = slider.clientWidth;
-            if (slideWidth > 0) {
-                currentSlide = Math.round(slider.scrollLeft / slideWidth);
-            }
-        });
-
-        startAutoplay();
     </script>
 
 </body>
