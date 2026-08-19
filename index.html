@@ -98,7 +98,7 @@
             background-color: #14111f;
         }
 
-        /* New Frame Container to center the text over the 6th image */
+        /* Frame Container to center the text over the 6th image */
         .image-overlay-container {
             position: relative;
             display: inline-block;
@@ -110,19 +110,19 @@
             height: 100%;
         }
 
-        /* Custom Text Overlay for "Book Now!" label */
+        /* Custom Text Overlay for "Book Now!" label shifted to the right side */
         .photo-text-label {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            right: 12%; /* Pushes the text safely off her face over to the right side */
+            transform: translateY(-50%);
             color: #ffffff;
             font-size: 2.2rem;
             font-weight: bold;
             letter-spacing: 3px;
             text-transform: uppercase;
             text-shadow: 0px 4px 15px #ff007f, 0px 0px 30px #000000;
-            pointer-events: none; /* Make completely unclickable */
+            pointer-events: none; 
             white-space: nowrap;
         }
 
