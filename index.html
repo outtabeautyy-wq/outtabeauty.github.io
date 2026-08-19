@@ -257,6 +257,27 @@
             <div class="coming-soon-badge">Coming Soon!</div>
             <p>Stunning transformations are currently loading. Check back soon to vibe with my latest luxury lash &amp; brow sessions!</p>
         </div>
+    <!-- Background Audio Element Restored -->
+    <audio id="salon-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Interaction Trigger Script for Restored Music -->
+    <script>
+        function playSalonMusic() {
+            var track = document.getElementById("salon-music");
+            track.play().catch(function(e) {
+                console.log("Autoplay paused by browser security policy.");
+            });
+            document.removeEventListener('click', playSalonMusic);
+            document.removeEventListener('touchstart', playSalonMusic);
+            document.removeEventListener('scroll', playSalonMusic);
+        }
+
+        document.addEventListener('click', playSalonMusic);
+        document.addEventListener('touchstart', playSalonMusic);
+        document.addEventListener('scroll', playSalonMusic);
+    </script>
 
         <div class="policy-box">
             <h4>Cancellation Policy</h4>
