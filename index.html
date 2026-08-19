@@ -13,6 +13,8 @@
             padding: 0; 
             line-height: 1.5; 
             text-align: center;
+            min-height: 100vh;
+            transition: background 0.5s ease;
         }
 
         /* Top Navigation Menu Frame */
@@ -41,7 +43,16 @@
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
-        /* Main Dynamic Layout Banner Cover Image */
+        /* Page Layout Views */
+        .page-view {
+            display: none; /* Hide screens until selected */
+            width: 100%;
+        }
+        .page-view.active-view {
+            display: block; /* Show the active tab screen */
+        }
+
+        /* Main Dynamic Layout Banner Cover Image (Home view) */
         .cover-photo {
             width: 100%;
             height: 35vh;
@@ -54,6 +65,18 @@
             letter-spacing: 4px;
             color: #ffffff;
             text-shadow: 0 0 15px #ff007f;
+        }
+
+        /* Cover Title Frame (Work Lounge view) */
+        .work-cover-photo {
+            width: 100%;
+            padding: 40px 0 10px 0;
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff007f;
+            text-transform: uppercase;
         }
 
         /* Custom Luxury Welcome Section */
@@ -85,18 +108,9 @@
         }
 
         /* Hide raw horizontal browser scrollbars while keeping swipe feature live */
-        .slider::-webkit-scrollbar {
-            display: none;
-        }
-        .slider {
-            -ms-overflow-style: none;  
-            scrollbar-width: none;  
-        }
-
-        .slides {
-            display: flex;
-            width: 100%;
-        }
+        .slider::-webkit-scrollbar { display: none; }
+        .slider { -ms-overflow-style: none; scrollbar-width: none; }
+        .slides { display: flex; width: 100%; }
 
         /* Standard Slide Layout Configuration */
         .slide-item {
@@ -109,7 +123,6 @@
             align-items: center;
             scroll-snap-align: start; 
         }
-
         .slides img {
             width: 100%;
             height: 100%;
@@ -141,31 +154,10 @@
             white-space: nowrap;
         }
 
-        /* --- NEW WORK LOUNGE CONTENT CONTAINER STYLING --- */
-        .worklounge-page-section {
-            display: none; /* Keeps it hidden until someone taps the Work Lounge menu button */
-            width: 100%;
-            min-height: 100vh;
-            box-sizing: border-box;
-            padding-bottom: 60px;
-            /* Stretches her premium worklounge image across the entire viewport background */
-            background: linear-gradient(rgba(12, 9, 20, 0.75), rgba(12, 9, 20, 0.75)), url('worklounge.jpeg') no-repeat center center fixed;
-            background-size: 100% 100%;
-        }
-
-        .cover-photo-work {
-            width: 100%;
-            padding: 40px 0 10px 0;
-            font-size: 2.2rem;
-            font-weight: bold;
-            letter-spacing: 4px;
-            color: #ffffff;
-            text-shadow: 0 0 15px #ff007f;
-            text-transform: uppercase;
-        }
-
+        /* --- WORK LOUNGE SUB-STYLES --- */
+        /* Centered Premium Layout Placeholder Box */
         .showcase-placeholder {
-            margin: 20px auto; 
+            margin: 20px auto 20px auto; 
             max-width: 450px;
             width: 85%;
             padding: 40px 30px;
@@ -176,7 +168,6 @@
             backdrop-filter: blur(8px); 
             box-sizing: border-box;
         }
-
         .showcase-placeholder h3 { 
             margin: 0 0 5px 0; 
             font-size: 1.4rem; 
@@ -185,6 +176,7 @@
             text-transform: uppercase; 
         }
 
+        /* Hot Neon Coming Soon Accent Header */
         .coming-soon-badge {
             font-size: 1.1rem;
             color: #ff007f;
@@ -194,7 +186,6 @@
             margin-bottom: 20px;
             text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
         }
-
         .showcase-placeholder p { 
             margin: 0; 
             font-size: 0.95rem; 
@@ -203,6 +194,7 @@
             line-height: 1.6;
         }
 
+        /* New Selections Styling Area */
         .policy-box {
             margin: 20px auto 10px auto;
             max-width: 450px;
@@ -215,7 +207,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             box-sizing: border-box;
         }
-
         .policy-box h4 {
             margin: 0 0 8px 0;
             color: #ff007f;
@@ -223,7 +214,6 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
-
         .policy-box p {
             margin: 0;
             font-size: 0.85rem;
@@ -249,7 +239,6 @@
             transition: 0.3s ease;
             box-sizing: border-box;
         }
-
         .book-now-btn:hover {
             background: #ffffff;
             color: #000000;
@@ -257,17 +246,17 @@
         }
     </style>
 </head>
-<body>
+<body id="main-body">
 
-    <!-- Fixed Live Booking Tab Layout Menu Framework -->
+    <!-- Fixed Live Booking Tab: Three Tabs Selection Layout -->
     <div class="nav-tabs">
-        <div id="home-tab-btn" class="nav-tab active" onclick="switchToHomeLounge()">Home Lounge</div>
-        <div id="work-tab-btn" class="nav-tab" onclick="switchToWorkLounge()">Work Lounge</div>
+        <div id="tab-home" class="nav-tab active" onclick="switchTab('home')">Home Lounge</div>
+        <div id="tab-work" class="nav-tab" onclick="switchTab('work')">Work Lounge</div>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
-    <!-- ==================== HOME LOUNGE WRAPPER AREA ==================== -->
-    <div id="home-page-content-wrapper">
+    <!-- ================= HOME LOUNGE VIEW ================= -->
+    <div id="view-home" class="page-view active-view">
         <!-- Main Layout Cover Image -->
         <div class="cover-photo">
             OUTTA BEAUTY
@@ -297,6 +286,10 @@
         </div>
     </div>
 
-    <!-- ==================== WORK LOUNGE WRAPPER AREA ==================== -->
-    <div id="work-page-content-wrapper" class="worklounge-page-section">
+    <!-- ================= WORK LOUNGE VIEW ================= -->
+    <div id="view-work" class="page-view">
         <!-- Title Page Overlay Header -->
+        <div class="work-cover-photo">
+            Work Lounge
+        </div>
+
