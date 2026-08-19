@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
+    <title>Work Lounge | Outta Beauty</title>
     <style>
         body { 
             background-color: #0c0914; 
@@ -13,6 +13,9 @@
             padding: 0; 
             line-height: 1.5; 
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Top Navigation Menu Frame */
@@ -41,33 +44,56 @@
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
-        /* Main Dynamic Layout Banner Cover Image */
-        .cover-photo {
-            width: 100%;
-            height: 35vh;
-            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
+        /* Main Content Container */
+        .content-container {
+            flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            letter-spacing: 4px;
-            color: #ffffff;
-            text-shadow: 0 0 15px #ff007f;
+            justify-content: space-between;
+            padding: 40px 20px;
+            box-sizing: border-box;
         }
 
-        /* Custom Luxury Welcome Section */
-        .music-section {
-            margin: 30px auto;
-            max-width: 450px;
-            padding: 25px;
+        /* Logo Styling for Top and Bottom */
+        .lounge-logo {
+            max-width: 350px;
+            width: 90%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.2);
+            transition: 0.3s ease;
+        }
+        .lounge-logo:hover {
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.4);
+        }
+
+        /* Center Coming Soon Frame */
+        .coming-soon-section {
+            margin: 50px auto;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 20px;
             background: #14111f;
             border-radius: 16px;
             border: 1px solid #ff007f;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
         }
-        .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
-        .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
+        .coming-soon-section h2 { 
+            margin: 0 0 15px 0; 
+            font-size: 1.8rem; 
+            color: #ff007f; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            text-shadow: 0 0 15px #ff007f;
+        }
+        .coming-soon-section p { 
+            margin: 0; 
+            font-size: 1.1rem; 
+            color: #ffffff; 
+            font-style: italic;
+            letter-spacing: 1px;
+        }
 
         /* Slowed 1-Minute Slideshow Framework (Scaled for 5 Images) */
         .slider {
@@ -112,32 +138,28 @@
 </head>
 <body>
 
-    <!-- Fixed Live Booking Tab: Two Tabs Only Layout -->
+    <!-- Fixed Navigation Tabs: Work Lounge Active -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab active">Home Lounge</a>
+        <a href="index.html" class="nav-tab">Home Lounge</a>
+        <a href="worklounge.html" class="nav-tab active">Work Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
-    
-    <!-- Main Layout Cover Image -->
-    <div class="cover-photo">
-        OUTTA BEAUTY
-    </div>
 
-    <!-- Custom Luxury Section -->
-    <div class="music-section">
-        <h3>Lounge Station</h3>
-        <p>Vibe with me during your luxury session</p>
-    </div>
+    <!-- Page Content Area -->
+    <div class="content-container">
+        
+        <!-- Top Logo Placement -->
+        <img src="worklounge.jpeg" alt="Outta Beauty Logo Top" class="lounge-logo">
 
-    <!-- Main 5-Image Slideshow Frame -->
-    <div class="slider">
-        <div class="slides">
-            <img src="sister.png" alt="Her Portrait First">
-            <img src="1785597649850.png" alt="Showcase 1">
-            <img src="1785596904014.png" alt="New Showcase 2">
-            <img src="1785682282832.jpg" alt="Showcase 3">
-            <img src="socials.jpeg" alt="Outta Beauty Socials">
+        <!-- Center Before and After Notice -->
+        <div class="coming-soon-section">
+            <h2>Before &amp; After</h2>
+            <p>Slideshow Coming Soon</p>
         </div>
+
+        <!-- Bottom Logo Placement -->
+        <img src="worklounge.jpeg" alt="Outta Beauty Logo Bottom" class="lounge-logo">
+
     </div>
 
     <!-- Background Audio Element -->
@@ -145,7 +167,7 @@
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Interaction Trigger Script from your photo -->
+    <!-- Interaction Trigger Script -->
     <script>
         function playSalonMusic() {
             var track = document.getElementById("salon-music");
@@ -161,6 +183,6 @@
         document.addEventListener('touchstart', playSalonMusic);
         document.addEventListener('scroll', playSalonMusic);
     </script>
-    
+
 </body>
 </html>
