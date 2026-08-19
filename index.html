@@ -69,7 +69,7 @@
         .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
         .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
 
-        /* Slowed 1-Minute Slideshow Framework (Scaled for 6 Images) */
+        /* Interactive Swipe Slideshow Framework */
         .slider {
             max-width: 600px;
             position: relative;
@@ -79,42 +79,53 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             background-color: #14111f;
+            touch-action: pan-y; /* Allows vertical scrolling but captures horizontal swiping */
         }
 
         .slides {
             display: flex;
-            width: 600%; 
-            animation: slide-animation 90s infinite; 
+            width: 100%;
+            transition: transform 0.5s ease-out; /* Smooth transition when changing slides */
+            cursor: grab;
+        }
+        
+        .slides:active {
+            cursor: grabbing;
         }
 
         /* Standard Slide Styling */
-        .slides img, .image-overlay-container {
-            width: 16.666%; 
+        .slide-item {
+            min-width: 100%; /* Each slide occupies exactly 100% of the slider window width */
+            box-sizing: border-box;
             height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .slides img {
-            object-fit: contain;
-            background-color: #14111f;
-        }
-
-        /* Frame Container to center the text over the 6th image */
-        .image-overlay-container {
-            position: relative;
-            display: inline-block;
-            background-color: #14111f;
-        }
-
-        .image-overlay-container img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
+            background-color: #14111f;
+            pointer-events: none; /* Prevents default image dragging issues while swiping */
         }
 
-        /* Custom Text Overlay for "Book Now!" label shifted to the right side */
+        /* Frame Container to position text over the 6th image */
+        .image-overlay-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #14111f;
+        }
+
+        /* Custom Text Overlay for "Book Now!" label shifted right */
         .photo-text-label {
             position: absolute;
             top: 50%;
-            right: 12%; /* Pushes the text safely off her face over to the right side */
+            right: 12%; 
             transform: translateY(-50%);
             color: #ffffff;
             font-size: 2.2rem;
@@ -124,23 +135,6 @@
             text-shadow: 0px 4px 15px #ff007f, 0px 0px 30px #000000;
             pointer-events: none; 
             white-space: nowrap;
-        }
-
-        /* Fluid Animation Loop updated for 6 distinct stops */
-        @keyframes slide-animation {
-            0% { transform: translateX(0%); }
-            13% { transform: translateX(0%); }
-            16.66% { transform: translateX(-16.666%); }
-            29.66% { transform: translateX(-16.666%); }
-            33.33% { transform: translateX(-33.333%); }
-            46.33% { transform: translateX(-33.333%); }
-            50% { transform: translateX(-50%); }
-            63% { transform: translateX(-50%); }
-            66.66% { transform: translateX(-66.666%); }
-            79.66% { transform: translateX(-66.666%); }
-            83.33% { transform: translateX(-83.333%); }
-            96.33% { transform: translateX(-83.333%); }
-            100% { transform: translateX(0%); }
         }
     </style>
 </head>
@@ -163,19 +157,20 @@
         <p>Vibe with me during your luxury session</p>
     </div>
 
-    <!-- Main 6-Image Slideshow Frame -->
-    <div class="slider">
-        <div class="slides">
-            <img src="sister.png" alt="Her Portrait First">
-            <img src="1785597649850.png" alt="Showcase 1">
-            <img src="1785596904014.png" alt="New Showcase 2">
-            <img src="1785682282832.jpg" alt="Showcase 3">
-            <img src="socials.jpeg" alt="Outta Beauty Socials">
-            
-            <!-- Frame for image 6 containing the unclickable "Book Now!" label -->
-            <div class="image-overlay-container">
-                <img src="IMG_0396.JPEG" alt="Last Showcase Picture with Book Now label">
-                <div class="photo-text-label">Book Now!</div>
+    <!-- Main Interactive 6-Image Slideshow Frame -->
+    <div class="slider" id="lounge-slider">
+        <div class="slides" id="slide-track">
+            <div class="slide-item"><img src="sister.png" alt="Her Portrait First"></div>
+            <div class="slide-item"><img src="1785597649850.png" alt="Showcase 1"></div>
+            <div class="slide-item"><img src="1785596904014.png" alt="New Showcase 2"></div>
+            <div class="slide-item"><img src="1785682282832.jpg" alt="Showcase 3"></div>
+            <div class="slide-item"><img src="socials.jpeg" alt="Outta Beauty Socials"></div>
+            <div class="slide-item">
+                <!-- Frame for image 6 containing the unclickable "Book Now!" label -->
+                <div class="image-overlay-container">
+                    <img src="IMG_0396.JPEG" alt="Last Showcase Picture with Book Now label">
+                    <div class="photo-text-label">Book Now!</div>
+                </div>
             </div>
         </div>
     </div>
@@ -185,8 +180,9 @@
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Interaction Trigger Script from your photo -->
+    <!-- Interactive Touch Control and Autoplay Scripts -->
     <script>
+        // --- 1. Music Autoplay Script ---
         function playSalonMusic() {
             var track = document.getElementById("salon-music");
             track.play().catch(function(e) {
@@ -196,11 +192,92 @@
             document.removeEventListener('touchstart', playSalonMusic);
             document.removeEventListener('scroll', playSalonMusic);
         }
-
         document.addEventListener('click', playSalonMusic);
         document.addEventListener('touchstart', playSalonMusic);
         document.addEventListener('scroll', playSalonMusic);
-    </script>
-    
-</body>
-</html>
+
+
+        // --- 2. Smart Finger Swiping & Autoplay Slideshow Script ---
+        const slider = document.getElementById('lounge-slider');
+        const track = document.getElementById('slide-track');
+        const slides = document.querySelectorAll('.slide-item');
+        
+        let currentIndex = 0;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let isDragging = false;
+        let autoplayTimer;
+
+        // Auto shift slides every 5 seconds
+        function startAutoplay() {
+            autoplayTimer = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSliderPosition();
+            }, 5000);
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayTimer);
+        }
+
+        function updateSliderPosition() {
+            currentTranslate = currentIndex * -slider.offsetWidth;
+            prevTranslate = currentTranslate;
+            track.style.transition = 'transform 0.5s ease-out';
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        // Handle touch gesture starts
+        track.addEventListener('touchstart', (e) => {
+            stopAutoplay();
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            track.style.transition = 'none';
+        });
+
+        // Track finger movement across screen
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const currentX = e.touches[0].clientX;
+            const diffX = currentX - startX;
+            currentTranslate = prevTranslate + diffX;
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        });
+
+        // Evaluate swipe length once finger leaves screen
+        track.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            const movedBy = currentTranslate - prevTranslate;
+
+            // Swiped Left threshold (Next slide)
+            if (movedBy < -50 && currentIndex < slides.length - 1) {
+                currentIndex += 1;
+            } 
+            // Swiped Right threshold (Previous slide)
+            else if (movedBy > 50 && currentIndex > 0) {
+                currentIndex -= 1;
+            }
+
+            updateSliderPosition();
+            startAutoplay();
+        });
+
+        // Desktop Mouse Support (so it works during testing)
+        track.addEventListener('mousedown', (e) => {
+            stopAutoplay();
+            isDragging = true;
+            startX = e.clientX;
+            track.style.transition = 'none';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const currentX = e.clientX;
+            const diffX = currentX - startX;
+            currentTranslate = prevTranslate + diffX;
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        });
+
+        window.addEventListener('mouseup', () => {
