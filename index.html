@@ -69,7 +69,7 @@
         .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
         .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
 
-        /* Slowed 1-Minute Slideshow Framework (Scaled for 5 Images) */
+        /* Slowed 1-Minute Slideshow Framework (Scaled for 6 Images) */
         .slider {
             max-width: 600px;
             position: relative;
@@ -83,29 +83,63 @@
 
         .slides {
             display: flex;
-            width: 500%;
-            animation: slide-animation 75s infinite;
+            width: 600%; 
+            animation: slide-animation 90s infinite; 
+        }
+
+        /* Standard Slide Styling */
+        .slides img, .image-overlay-container {
+            width: 16.666%; 
+            height: 500px;
         }
 
         .slides img {
-            width: 20%;
-            height: 500px;
             object-fit: contain;
             background-color: #14111f;
         }
 
-        /* Fluid Animation Loop keeping her exact timing layout with 5 distinct stops */
+        /* New Frame Container to center the text over the 6th image */
+        .image-overlay-container {
+            position: relative;
+            display: inline-block;
+            background-color: #14111f;
+        }
+
+        .image-overlay-container img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Custom Text Overlay for "Book Now!" label */
+        .photo-text-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0px 4px 15px #ff007f, 0px 0px 30px #000000;
+            pointer-events: none; /* Make completely unclickable */
+            white-space: nowrap;
+        }
+
+        /* Fluid Animation Loop updated for 6 distinct stops */
         @keyframes slide-animation {
             0% { transform: translateX(0%); }
-            16% { transform: translateX(0%); }
-            20% { transform: translateX(-20%); }
-            36% { transform: translateX(-20%); }
-            40% { transform: translateX(-40%); }
-            56% { transform: translateX(-40%); }
-            60% { transform: translateX(-60%); }
-            76% { transform: translateX(-60%); }
-            80% { transform: translateX(-80%); }
-            96% { transform: translateX(-80%); }
+            13% { transform: translateX(0%); }
+            16.66% { transform: translateX(-16.666%); }
+            29.66% { transform: translateX(-16.666%); }
+            33.33% { transform: translateX(-33.333%); }
+            46.33% { transform: translateX(-33.333%); }
+            50% { transform: translateX(-50%); }
+            63% { transform: translateX(-50%); }
+            66.66% { transform: translateX(-66.666%); }
+            79.66% { transform: translateX(-66.666%); }
+            83.33% { transform: translateX(-83.333%); }
+            96.33% { transform: translateX(-83.333%); }
             100% { transform: translateX(0%); }
         }
     </style>
@@ -129,7 +163,7 @@
         <p>Vibe with me during your luxury session</p>
     </div>
 
-    <!-- Main 5-Image Slideshow Frame -->
+    <!-- Main 6-Image Slideshow Frame -->
     <div class="slider">
         <div class="slides">
             <img src="sister.png" alt="Her Portrait First">
@@ -137,6 +171,12 @@
             <img src="1785596904014.png" alt="New Showcase 2">
             <img src="1785682282832.jpg" alt="Showcase 3">
             <img src="socials.jpeg" alt="Outta Beauty Socials">
+            
+            <!-- Frame for image 6 containing the unclickable "Book Now!" label -->
+            <div class="image-overlay-container">
+                <img src="IMG_0396.JPEG" alt="Last Showcase Picture with Book Now label">
+                <div class="photo-text-label">Book Now!</div>
+            </div>
         </div>
     </div>
 
