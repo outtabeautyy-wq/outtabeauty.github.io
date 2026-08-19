@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outta Beauty | Work Lounge</title>
+    <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
     <style>
         body { 
-            /* Forces your uploaded worklounge.jpeg file to fill 100% of the screen width and height perfectly */
-            background: linear-gradient(rgba(12, 9, 20, 0.75), rgba(12, 9, 20, 0.75)), url('worklounge.jpeg') no-repeat center center fixed;
-            background-size: 100% 100%; 
+            background-color: #0c0914; 
             color: #f4f3f7; 
             font-family: 'Segoe UI', Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
             line-height: 1.5; 
             text-align: center;
-            min-height: 100vh;
         }
 
         /* Top Navigation Menu Frame */
@@ -32,7 +29,6 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            width: 100%;
         }
         .nav-tab {
             color: #8a8894;
@@ -45,150 +41,150 @@
         .nav-tab.active { color: #ff007f; }
         .nav-tab:hover { color: #ffffff; }
 
-        /* Cover Title Frame */
+        /* Main Dynamic Layout Banner Cover Image */
         .cover-photo {
             width: 100%;
-            padding: 40px 0 10px 0;
-            font-size: 2.2rem;
+            height: 35vh;
+            background: linear-gradient(rgba(12, 9, 20, 0.1), rgba(12, 9, 20, 0.1)), url('Original%202.PNG') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
             font-weight: bold;
             letter-spacing: 4px;
             color: #ffffff;
             text-shadow: 0 0 15px #ff007f;
-            text-transform: uppercase;
         }
 
-        /* Centered Premium Layout Placeholder Box */
-        .showcase-placeholder {
-            margin: 20px auto 20px auto; 
+        /* Custom Luxury Welcome Section */
+        .music-section {
+            margin: 30px auto;
             max-width: 450px;
-            width: 85%;
-            padding: 40px 30px;
-            background: rgba(20, 17, 31, 0.85); 
+            padding: 25px;
+            background: #14111f;
             border-radius: 16px;
             border: 1px solid #ff007f;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+        .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
+        .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
+
+        /* Natively Swipable Layout Frame via CSS Scroll Snap */
+        .slider {
+            max-width: 600px;
+            margin: 30px auto 60px auto;
+            overflow-x: auto; 
+            overflow-y: hidden;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            background-color: #14111f;
+            scroll-snap-type: x mandatory; 
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Hide raw horizontal browser scrollbars while keeping swipe feature live */
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+        .slider {
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Standard Slide Layout Configuration */
+        .slide-item {
+            min-width: 100%;
+            width: 100%;
             box-sizing: border-box;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start; 
         }
 
-        .showcase-placeholder h3 { 
-            margin: 0 0 5px 0; 
-            font-size: 1.4rem; 
-            color: #ffffff; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #14111f;
         }
 
-        /* Hot Neon Coming Soon Accent Header */
-        .coming-soon-badge {
-            font-size: 1.1rem;
-            color: #ff007f;
+        /* Frame Container to position text over the 6th image */
+        .image-overlay-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #14111f;
+        }
+
+        /* Custom Text Overlay for "Book Now!" label shifted right */
+        .photo-text-label {
+            position: absolute;
+            top: 50%;
+            right: 12%; 
+            transform: translateY(-50%);
+            color: #ffffff;
+            font-size: 2.2rem;
             font-weight: bold;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
-        }
-
-        .showcase-placeholder p { 
-            margin: 0; 
-            font-size: 0.95rem; 
-            color: #c4c2cc; 
-            font-style: italic;
-            line-height: 1.6;
-        }
-
-        /* New Selections Styling Area */
-        .policy-box {
-            margin: 20px auto 10px auto;
-            max-width: 450px;
-            width: 85%;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: left;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            box-sizing: border-box;
-        }
-
-        .policy-box h4 {
-            margin: 0 0 8px 0;
-            color: #ff007f;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .policy-box p {
-            margin: 0;
-            font-size: 0.85rem;
-            color: #d1cedb;
-            line-height: 1.5;
-        }
-
-        .book-now-btn {
-            display: block;
-            max-width: 450px;
-            width: 85%;
-            margin: 10px auto 40px auto;
-            background: #ff007f;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px 0;
-            font-weight: bold;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
-            transition: 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        .book-now-btn:hover {
-            background: #ffffff;
-            color: #000000;
-            box-shadow: 0 0 25px #ffffff;
+            text-shadow: 0px 4px 15px #ff007f, 0px 0px 30px #000000;
+            pointer-events: none; 
+            white-space: nowrap;
         }
     </style>
 </head>
 <body>
 
-    <!-- Three Tabs Menu Layout Framework -->
+    <!-- Fixed Live Booking Tab: Three Tabs Selection Layout -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab">Home Lounge</a>
-        <a href="worklounge.html" class="nav-tab active">Work Lounge</a>
+        <a href="index.html" class="nav-tab active">Home Lounge</a>
+        <a href="worklounge.html" class="nav-tab">Work Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
-    <!-- Title Page Overlay Header -->
+    <!-- Main Layout Cover Image -->
     <div class="cover-photo">
-        Work Lounge
+        OUTTA BEAUTY
     </div>
 
-    <!-- Centered Decorated Area Selection for Before and After content -->
-    <div class="showcase-placeholder">
-        <h3>Before &amp; After Portfolio</h3>
-        <div class="coming-soon-badge">Coming Soon!</div>
-        <p>Stunning transformations are currently loading. Check back soon to vibe with my latest luxury lash &amp; brow sessions!</p>
+    <!-- Custom Luxury Section -->
+    <div class="music-section">
+        <h3>Lounge Station</h3>
+        <p>Vibe with me during your luxury session</p>
     </div>
 
-    <!-- Added Cancellation Selection Block -->
-    <div class="policy-box">
-        <h4>Cancellation Policy</h4>
-        <p>Please note that no-shows as well as cancellations or rescheduling requests made after your appointment start time, are subject to a fee equal to 100% of your service cost.</p>
+    <!-- Main Native Swipe + Autoplay 6-Image Slideshow Frame -->
+    <div class="slider" id="lounge-slider">
+        <div class="slides">
+            <div class="slide-item"><img src="sister.png" alt="Her Portrait First"></div>
+            <div class="slide-item"><img src="1785597649850.png" alt="Showcase 1"></div>
+            <div class="slide-item"><img src="1785596904014.png" alt="New Showcase 2"></div>
+            <div class="slide-item"><img src="1785682282832.jpg" alt="Showcase 3"></div>
+            <div class="slide-item"><img src="socials.jpeg" alt="Outta Beauty Socials"></div>
+            <div class="slide-item">
+                <div class="image-overlay-container">
+                    <img src="IMG_0396.JPEG" alt="Last Showcase Picture with Book Now label">
+                    <div class="photo-text-label">Book Now!</div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Added Clickable Link Selection Slot -->
-    <a href="livecalendar.html" target="_blank" class="book-now-btn">Book Now!</a>
-
-    <!-- Background Audio Element Restored -->
+    <!-- Background Audio Element -->
     <audio id="salon-music" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Interaction Trigger Script for Restored Music -->
+    <!-- Interactive Touch Control and Autoplay Scripts -->
     <script>
         function playSalonMusic() {
             var track = document.getElementById("salon-music");
@@ -199,11 +195,52 @@
             document.removeEventListener('touchstart', playSalonMusic);
             document.removeEventListener('scroll', playSalonMusic);
         }
-
         document.addEventListener('click', playSalonMusic);
         document.addEventListener('touchstart', playSalonMusic);
         document.addEventListener('scroll', playSalonMusic);
-    </script>
 
+        const slider = document.getElementById('lounge-slider');
+        const slideItems = document.querySelectorAll('.slide-item');
+        let currentSlide = 0;
+        let autoplayTimer;
+        let userInteracting = false;
+        let resetTimeout;
+
+        function startAutoplay() {
+            autoplayTimer = setInterval(() => {
+                if (userInteracting) return;
+                currentSlide = (currentSlide + 1) % slideItems.length;
+                const slideWidth = slider.clientWidth;
+                slider.scrollTo({ left: currentSlide * slideWidth, behavior: 'smooth' });
+            }, 60000); 
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayTimer);
+        }
+
+        slider.addEventListener('scroll', () => {
+            const slideWidth = slider.clientWidth;
+            if (slideWidth > 0) {
+                currentSlide = Math.round(slider.scrollLeft / slideWidth);
+            }
+        });
+
+        slider.addEventListener('touchstart', () => {
+            userInteracting = true;
+            stopAutoplay();
+            clearTimeout(resetTimeout);
+        }, { passive: true });
+
+        slider.addEventListener('touchend', () => {
+            resetTimeout = setTimeout(() => {
+                userInteracting = false;
+                startAutoplay();
+            }, 60000); 
+        }, { passive: true });
+
+        startAutoplay();
+    </script>
+    
 </body>
 </html>
