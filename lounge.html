@@ -1,1 +1,67 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outta Beauty | Luxury Lash, Brow &amp; Bar Lounge</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0c0914;
+        }
+        /* Master Layout content iframe frame */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The Master Live Music Player (Stays running in background continuously) -->
+    <audio id="salon-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Master Layout view box displaying the pages -->
+    <iframe src="index.html" id="site-frame"></iframe>
+
+    <script>
+        // Track music playback status safely across the framework
+        const track = document.getElementById("salon-music");
+        
+        function playMasterMusic() {
+            track.play().catch(e => console.log("Autoplay paused by device rules."));
+            document.removeEventListener('click', playMasterMusic);
+            document.removeEventListener('touchstart', playMasterMusic);
+        }
+        document.addEventListener('click', playMasterMusic);
+        document.addEventListener('touchstart', playMasterMusic);
+
+        // Intercepts link clicks inside the pages to prevent the music tab layout from cutting off
+        const siteFrame = document.getElementById('site-frame');
+        siteFrame.addEventListener('load', () => {
+            const frameWindow = siteFrame.contentWindow;
+            frameWindow.document.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (link && link.getAttribute('target') !== '_blank') {
+                    const href = link.getAttribute('href');
+                    if (href === 'index.html' || href === 'worklounge.html') {
+                        e.preventDefault();
+                        siteFrame.src = href; // Changes page inside the layout container frame smoothly
+                    }
+                }
+            });
+            // Shares touch triggers inside the window layout container to play music instantly
+            frameWindow.document.addEventListener('touchstart', playMasterMusic);
+            frameWindow.document.addEventListener('click', playMasterMusic);
+        });
+    </script>
+
+</body>
+</html>
