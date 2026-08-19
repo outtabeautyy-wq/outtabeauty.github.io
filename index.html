@@ -69,40 +69,45 @@
         .music-section h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: #ff007f; letter-spacing: 2px; text-transform: uppercase; }
         .music-section p { margin: 0; font-size: 0.95rem; color: #f4f3f7; font-style: italic; }
 
-        /* Interactive Swipe Slideshow Framework */
+        /* Natively Swipable Layout Frame via CSS Scroll Snap */
         .slider {
             max-width: 600px;
-            position: relative;
             margin: 30px auto 60px auto;
-            overflow: hidden;
+            overflow-x: auto; /* Enables native finger swiping tracking */
+            overflow-y: hidden;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             background-color: #14111f;
-            touch-action: pan-y; /* Allows vertical scrolling but captures horizontal swiping */
+            scroll-snap-type: x mandatory; /* Magnets individual photos to snap cleanly on frame edge */
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Hide raw horizontal browser scrollbars while keeping swipe feature live */
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+        .slider {
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
         }
 
         .slides {
             display: flex;
             width: 100%;
-            transition: transform 0.5s ease-out; /* Smooth transition when changing slides */
-            cursor: grab;
-        }
-        
-        .slides:active {
-            cursor: grabbing;
         }
 
-        /* Standard Slide Styling */
+        /* Standard Slide Layout Configuration */
         .slide-item {
-            min-width: 100%; /* Each slide occupies exactly 100% of the slider window width */
+            min-width: 100%;
+            width: 100%;
             box-sizing: border-box;
             height: 500px;
             display: flex;
             justify-content: center;
             align-items: center;
-            user-select: none;
-            -webkit-user-drag: none;
+            scroll-snap-align: start; /* Lock element frame */
         }
 
         .slides img {
@@ -110,7 +115,6 @@
             height: 100%;
             object-fit: contain;
             background-color: #14111f;
-            pointer-events: none; /* Prevents default image dragging issues while swiping */
         }
 
         /* Frame Container to position text over the 6th image */
@@ -157,9 +161,9 @@
         <p>Vibe with me during your luxury session</p>
     </div>
 
-    <!-- Main Interactive 6-Image Slideshow Frame -->
+    <!-- Main Native Swipe + Autoplay 6-Image Slideshow Frame -->
     <div class="slider" id="lounge-slider">
-        <div class="slides" id="slide-track">
+        <div class="slides">
             <div class="slide-item"><img src="sister.png" alt="Her Portrait First"></div>
             <div class="slide-item"><img src="1785597649850.png" alt="Showcase 1"></div>
             <div class="slide-item"><img src="1785596904014.png" alt="New Showcase 2"></div>
@@ -197,87 +201,60 @@
         document.addEventListener('scroll', playSalonMusic);
 
 
-        // --- 2. Smart Finger Swiping & Autoplay Slideshow Script ---
+        // --- 2. Native Scroll Snapping Autoplay Controller ---
         const slider = document.getElementById('lounge-slider');
-        const track = document.getElementById('slide-track');
-        const slides = document.querySelectorAll('.slide-item');
-        
-        let currentIndex = 0;
-        let startX = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let isDragging = false;
+        const slideItems = document.querySelectorAll('.slide-item');
+        let currentSlide = 0;
         let autoplayTimer;
+        let userInteracting = false;
+        let resetTimeout;
 
-        // Auto shift slides every 5 seconds
         function startAutoplay() {
             autoplayTimer = setInterval(() => {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateSliderPosition();
-            }, 5000);
+                if (userInteracting) return;
+                
+                currentSlide = (currentSlide + 1) % slideItems.length;
+                const slideWidth = slider.clientWidth;
+                
+                // Native smooth scroll to the target slide item index position
+                slider.scrollTo({
+                    left: currentSlide * slideWidth,
+                    behavior: 'smooth'
+                });
+            }, 5000); // Transitions to next image automatically every 5 seconds
         }
 
         function stopAutoplay() {
             clearInterval(autoplayTimer);
         }
 
-        function updateSliderPosition() {
-            currentTranslate = currentIndex * -slider.offsetWidth;
-            prevTranslate = currentTranslate;
-            track.style.transition = 'transform 0.5s ease-out';
-            track.style.transform = `translateX(${currentTranslate}px)`;
-        }
-
-        // Handle touch gesture starts
-        track.addEventListener('touchstart', (e) => {
-            stopAutoplay();
-            isDragging = true;
-            startX = e.touches[0].clientX;
-            track.style.transition = 'none';
-        });
-
-        // Track finger movement across screen
-        track.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const currentX = e.touches[0].clientX;
-            const diffX = currentX - startX;
-            currentTranslate = prevTranslate + diffX;
-            track.style.transform = `translateX(${currentTranslate}px)`;
-        });
-
-        // Evaluate swipe length once finger leaves screen
-        track.addEventListener('touchend', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            const movedBy = currentTranslate - prevTranslate;
-
-            // Swiped Left threshold (Next slide)
-            if (movedBy < -50 && currentIndex < slides.length - 1) {
-                currentIndex += 1;
-            } 
-            // Swiped Right threshold (Previous slide)
-            else if (movedBy > 50 && currentIndex > 0) {
-                currentIndex -= 1;
+        // Listens to manual touch swipes to update tracking index position perfectly
+        slider.addEventListener('scroll', () => {
+            const slideWidth = slider.clientWidth;
+            if (slideWidth > 0) {
+                // Instantly syncs currentSlide tracking state to whichever photo the finger pulled onto screen
+                currentSlide = Math.round(slider.scrollLeft / slideWidth);
             }
-
-            updateSliderPosition();
-            startAutoplay();
         });
 
-        // Desktop Mouse Support (so it works during testing)
-        track.addEventListener('mousedown', (e) => {
+        // Pause autoplay instantly when a user drags or holds with their finger
+        slider.addEventListener('touchstart', () => {
+            userInteracting = true;
             stopAutoplay();
-            isDragging = true;
-            startX = e.clientX;
-            track.style.transition = 'none';
-        });
+            clearTimeout(resetTimeout);
+        }, { passive: true });
 
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            const currentX = e.clientX;
-            const diffX = currentX - startX;
-            currentTranslate = prevTranslate + diffX;
-            track.style.transform = `translateX(${currentTranslate}px)`;
-        });
+        // Resume auto timeline after user leaves screen untouched for 8 seconds
+        slider.addEventListener('touchend', () => {
+            resetTimeout = setTimeout(() => {
+                userInteracting = false;
+                startAutoplay();
+            }, 8000);
+        }, { passive: true });
 
-        window.addEventListener('mouseup', () => {
+        // Initialize script timeline triggers
+        startAutoplay();
+    </script>
+    
+</body>
+</html>
