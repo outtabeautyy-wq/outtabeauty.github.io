@@ -35,6 +35,25 @@
         <!-- Direct Action Booking Button Link Trigger Section -->
         <a href="livecalendar.html" target="_blank" style="display: inline-block; background-color: #ff007f; color: #ffffff; text-decoration: none; text-transform: uppercase; font-weight: bold; font-size: 1.1rem; letter-spacing: 2px; padding: 15px 45px; border-radius: 50px; box-shadow: 0 0 20px #ff007f;">Book Now!</a>
     </main>
+ <!-- Background Audio Element -->
+    <audio id="salon-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
+    <!-- Interactive Touch Control Script -->
+    <script>
+        function playSalonMusic() {
+            var track = document.getElementById("salon-music");
+            track.play().catch(function(e) {
+                console.log("Autoplay paused by browser security policy.");
+            });
+            document.removeEventListener('click', playSalonMusic);
+            document.removeEventListener('touchstart', playSalonMusic);
+            document.removeEventListener('scroll', playSalonMusic);
+        }
+        document.addEventListener('click', playSalonMusic);
+        document.addEventListener('touchstart', playSalonMusic);
+        document.addEventListener('scroll', playSalonMusic);
+    </script>
 </body>
 </html>
