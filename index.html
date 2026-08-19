@@ -140,107 +140,163 @@
             pointer-events: none; 
             white-space: nowrap;
         }
+
+        /* --- NEW WORK LOUNGE CONTENT CONTAINER STYLING --- */
+        .worklounge-page-section {
+            display: none; /* Keeps it hidden until someone taps the Work Lounge menu button */
+            width: 100%;
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding-bottom: 60px;
+            /* Stretches her premium worklounge image across the entire viewport background */
+            background: linear-gradient(rgba(12, 9, 20, 0.75), rgba(12, 9, 20, 0.75)), url('worklounge.jpeg') no-repeat center center fixed;
+            background-size: 100% 100%;
+        }
+
+        .cover-photo-work {
+            width: 100%;
+            padding: 40px 0 10px 0;
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff007f;
+            text-transform: uppercase;
+        }
+
+        .showcase-placeholder {
+            margin: 20px auto; 
+            max-width: 450px;
+            width: 85%;
+            padding: 40px 30px;
+            background: rgba(20, 17, 31, 0.85); 
+            border-radius: 16px;
+            border: 1px solid #ff007f;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px); 
+            box-sizing: border-box;
+        }
+
+        .showcase-placeholder h3 { 
+            margin: 0 0 5px 0; 
+            font-size: 1.4rem; 
+            color: #ffffff; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .coming-soon-badge {
+            font-size: 1.1rem;
+            color: #ff007f;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+        }
+
+        .showcase-placeholder p { 
+            margin: 0; 
+            font-size: 0.95rem; 
+            color: #c4c2cc; 
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .policy-box {
+            margin: 20px auto 10px auto;
+            max-width: 450px;
+            width: 85%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            box-sizing: border-box;
+        }
+
+        .policy-box h4 {
+            margin: 0 0 8px 0;
+            color: #ff007f;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .policy-box p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #d1cedb;
+            line-height: 1.5;
+        }
+
+        .book-now-btn {
+            display: block;
+            max-width: 450px;
+            width: 85%;
+            margin: 10px auto 40px auto;
+            background: #ff007f;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+            transition: 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .book-now-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 25px #ffffff;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Live Booking Tab: Three Tabs Selection Layout -->
+    <!-- Fixed Live Booking Tab Layout Menu Framework -->
     <div class="nav-tabs">
-        <a href="index.html" class="nav-tab active">Home Lounge</a>
-        <a href="worklounge.html" class="nav-tab">Work Lounge</a>
+        <div id="home-tab-btn" class="nav-tab active" onclick="switchToHomeLounge()">Home Lounge</div>
+        <div id="work-tab-btn" class="nav-tab" onclick="switchToWorkLounge()">Work Lounge</div>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
     
-    <!-- Main Layout Cover Image -->
-    <div class="cover-photo">
-        OUTTA BEAUTY
-    </div>
+    <!-- ==================== HOME LOUNGE WRAPPER AREA ==================== -->
+    <div id="home-page-content-wrapper">
+        <!-- Main Layout Cover Image -->
+        <div class="cover-photo">
+            OUTTA BEAUTY
+        </div>
 
-    <!-- Custom Luxury Section -->
-    <div class="music-section">
-        <h3>Lounge Station</h3>
-        <p>Vibe with me during your luxury session</p>
-    </div>
+        <!-- Custom Luxury Section -->
+        <div class="music-section">
+            <h3>Lounge Station</h3>
+            <p>Vibe with me during your luxury session</p>
+        </div>
 
-    <!-- Main Native Swipe + Autoplay 6-Image Slideshow Frame -->
-    <div class="slider" id="lounge-slider">
-        <div class="slides">
-            <div class="slide-item"><img src="sister.png" alt="Her Portrait First"></div>
-            <div class="slide-item"><img src="1785597649850.png" alt="Showcase 1"></div>
-            <div class="slide-item"><img src="1785596904014.png" alt="New Showcase 2"></div>
-            <div class="slide-item"><img src="1785682282832.jpg" alt="Showcase 3"></div>
-            <div class="slide-item"><img src="socials.jpeg" alt="Outta Beauty Socials"></div>
-            <div class="slide-item">
-                <div class="image-overlay-container">
-                    <img src="IMG_0396.JPEG" alt="Last Showcase Picture with Book Now label">
-                    <div class="photo-text-label">Book Now!</div>
+        <!-- Main Native Swipe + Autoplay 6-Image Slideshow Frame -->
+        <div class="slider" id="lounge-slider">
+            <div class="slides">
+                <div class="slide-item"><img src="sister.png" alt="Her Portrait First"></div>
+                <div class="slide-item"><img src="1785597649850.png" alt="Showcase 1"></div>
+                <div class="slide-item"><img src="1785596904014.png" alt="New Showcase 2"></div>
+                <div class="slide-item"><img src="1785682282832.jpg" alt="Showcase 3"></div>
+                <div class="slide-item"><img src="socials.jpeg" alt="Outta Beauty Socials"></div>
+                <div class="slide-item">
+                    <div class="image-overlay-container">
+                        <img src="IMG_0396.JPEG" alt="Last Showcase Picture with Book Now label">
+                        <div class="photo-text-label">Book Now!</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Background Audio Element -->
-    <audio id="salon-music" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- Interactive Touch Control and Autoplay Scripts -->
-    <script>
-        function playSalonMusic() {
-            var track = document.getElementById("salon-music");
-            track.play().catch(function(e) {
-                console.log("Autoplay paused by browser security policy.");
-            });
-            document.removeEventListener('click', playSalonMusic);
-            document.removeEventListener('touchstart', playSalonMusic);
-            document.removeEventListener('scroll', playSalonMusic);
-        }
-        document.addEventListener('click', playSalonMusic);
-        document.addEventListener('touchstart', playSalonMusic);
-        document.addEventListener('scroll', playSalonMusic);
-
-        const slider = document.getElementById('lounge-slider');
-        const slideItems = document.querySelectorAll('.slide-item');
-        let currentSlide = 0;
-        let autoplayTimer;
-        let userInteracting = false;
-        let resetTimeout;
-
-        function startAutoplay() {
-            autoplayTimer = setInterval(() => {
-                if (userInteracting) return;
-                currentSlide = (currentSlide + 1) % slideItems.length;
-                const slideWidth = slider.clientWidth;
-                slider.scrollTo({ left: currentSlide * slideWidth, behavior: 'smooth' });
-            }, 60000); 
-        }
-
-        function stopAutoplay() {
-            clearInterval(autoplayTimer);
-        }
-
-        slider.addEventListener('scroll', () => {
-            const slideWidth = slider.clientWidth;
-            if (slideWidth > 0) {
-                currentSlide = Math.round(slider.scrollLeft / slideWidth);
-            }
-        });
-
-        slider.addEventListener('touchstart', () => {
-            userInteracting = true;
-            stopAutoplay();
-            clearTimeout(resetTimeout);
-        }, { passive: true });
-
-        slider.addEventListener('touchend', () => {
-            resetTimeout = setTimeout(() => {
-                userInteracting = false;
-                startAutoplay();
-            }, 60000); 
-        }, { passive: true });
-
-        startAutoplay();
-    </script>
-    
-</body>
-</html>
+    <!-- ==================== WORK LOUNGE WRAPPER AREA ==================== -->
+    <div id="work-page-content-wrapper" class="worklounge-page-section">
+        <!-- Title Page Overlay Header -->
