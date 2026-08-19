@@ -73,13 +73,13 @@
         .slider {
             max-width: 600px;
             margin: 30px auto 60px auto;
-            overflow-x: auto; /* Enables native finger swiping tracking */
+            overflow-x: auto; 
             overflow-y: hidden;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             background-color: #14111f;
-            scroll-snap-type: x mandatory; /* Magnets individual photos to snap cleanly on frame edge */
+            scroll-snap-type: x mandatory; 
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
         }
@@ -107,7 +107,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            scroll-snap-align: start; /* Lock element frame */
+            scroll-snap-align: start; 
         }
 
         .slides img {
@@ -216,12 +216,11 @@
                 currentSlide = (currentSlide + 1) % slideItems.length;
                 const slideWidth = slider.clientWidth;
                 
-                // Native smooth scroll to the target slide item index position
                 slider.scrollTo({
                     left: currentSlide * slideWidth,
                     behavior: 'smooth'
                 });
-            }, 5000); // Transitions to next image automatically every 5 seconds
+            }, 60000); // ⏱️ Changes pictures exactly every 1 minute (60 seconds)
         }
 
         function stopAutoplay() {
@@ -232,7 +231,6 @@
         slider.addEventListener('scroll', () => {
             const slideWidth = slider.clientWidth;
             if (slideWidth > 0) {
-                // Instantly syncs currentSlide tracking state to whichever photo the finger pulled onto screen
                 currentSlide = Math.round(slider.scrollLeft / slideWidth);
             }
         });
@@ -244,12 +242,12 @@
             clearTimeout(resetTimeout);
         }, { passive: true });
 
-        // Resume auto timeline after user leaves screen untouched for 8 seconds
+        // Resume auto timeline after user leaves screen untouched for 1 minute
         slider.addEventListener('touchend', () => {
             resetTimeout = setTimeout(() => {
                 userInteracting = false;
                 startAutoplay();
-            }, 8000);
+            }, 60000); // ⏱️ Wait a full minute after touch ends to resume autoplay loop
         }, { passive: true });
 
         // Initialize script timeline triggers
