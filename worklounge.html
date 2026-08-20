@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outta Beauty | Kira’s Work Lounge</title>
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #0c0914; /* Locks in the deep dark background color */
+        }
+        
         body { 
+            /* Sealing fix: stretched center/cover fixed background image across the absolute full document footprint */
             background: linear-gradient(rgba(12, 9, 20, 0.75), rgba(12, 9, 20, 0.75)), url('worklounge.jpeg') center/cover no-repeat fixed;
             color: #f4f3f7; 
             font-family: 'Segoe UI', Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
             line-height: 1.5; 
             text-align: center;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -56,7 +61,7 @@
             width: 100%;
         }
 
-        /* UPDATED: Shrunk top margin to move Kira's Work Lounge up higher */
+        /* Shrunk top margin to move Kira's Work Lounge up higher */
         .top-content {
             margin-top: 15px;
         }
@@ -95,7 +100,7 @@
         /* Fixed Bottom Section Content Block wrapper locked to the bottom */
         .bottom-content {
             margin-top: auto;
-            padding-bottom: 30px; 
+            padding-bottom: 35px; /* Boosted base spacing framework to clear phone navigation overlays */
             width: 100%;
         }
 
@@ -141,6 +146,7 @@
             box-shadow: 0 0 20px #ff007f;
             transition: all 0.3s ease;
             width: auto;
+            margin-bottom: 10px; /* Safe cushion padding base */
         }
 
         .book-now-button:hover {
