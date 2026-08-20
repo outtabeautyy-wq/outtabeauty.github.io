@@ -143,24 +143,23 @@
     </style>
 </head>
 <body>
-      <!-- Updated Navigation Menu: Work Lounge Second -->
+    <!-- Updated Navigation Menu: Work Lounge Second -->
     <div class="nav-tabs">
         <a href="index.html" class="nav-tab active">Home Lounge</a>
         <a href="worklounge.html" class="nav-tab">Work Lounge</a>
         <a href="livecalendar.html" target="_blank" class="nav-tab">Live Booking</a>
     </div> 
+    
     <!-- Main Layout Cover Image -->
     <div class="cover-photo">
         OUTTA BEAUTY
     </div>
+    
     <!-- Custom Luxury Section -->
     <div class="music-section">
         <h3>Lounge Station</h3>
         <p style="font-size: 0.8rem; white-space: nowrap;">🩷 VIBE WITH KIRA DURING YOUR LUXURY SESSION 🩷</p>
-
     </div>
-
-    
 
     <!-- Main Native Swipe + Autoplay 6-Image Slideshow Frame -->
     <div class="slider" id="lounge-slider">
@@ -207,13 +206,10 @@
         const slideItems = document.querySelectorAll('.slide-item');
         let currentSlide = 0;
         let autoplayTimer;
-        let userInteracting = false;
         let resetTimeout;
 
         function startAutoplay() {
             autoplayTimer = setInterval(() => {
-                if (userInteracting) return;
-                
                 currentSlide = (currentSlide + 1) % slideItems.length;
                 const slideWidth = slider.clientWidth;
                 
@@ -221,14 +217,15 @@
                     left: currentSlide * slideWidth,
                     behavior: 'smooth'
                 });
-            }, 60000); // ⏱️ Changes pictures exactly every 1 minute (60 seconds)
+            }, 60000); // ⏱️ Moves exactly every 1 minute (60,000ms)
         }
 
-        function stopAutoplay() {
+        function resetAutoplayTimer() {
             clearInterval(autoplayTimer);
+            startAutoplay();
         }
 
-        // Listens to manual touch swipes to update tracking index position perfectly
+        // Track touch manual inputs cleanly so it matches the automatic index
         slider.addEventListener('scroll', () => {
             const slideWidth = slider.clientWidth;
             if (slideWidth > 0) {
@@ -236,24 +233,18 @@
             }
         });
 
-        // Pause autoplay instantly when a user drags or holds with their finger
+        // Pauses timer temporarily while dragging with finger, then resets the 1-minute countdown
         slider.addEventListener('touchstart', () => {
-            userInteracting = true;
-            stopAutoplay();
+            clearInterval(autoplayTimer);
             clearTimeout(resetTimeout);
-        }, { passive: true });
+        });
 
-        // Resume auto timeline after user leaves screen untouched for 1 minute
         slider.addEventListener('touchend', () => {
-            resetTimeout = setTimeout(() => {
-                userInteracting = false;
-                startAutoplay();
-            }, 60000); // ⏱️ Wait a full minute after touch ends to resume autoplay loop
-        }, { passive: true });
+            resetTimeout = setTimeout(resetAutoplayTimer, 5000); // Waits 5 seconds after finger lifts to resume countdown
+        });
 
-        // Initialize script timeline triggers
+        // Launch slideshow clock loop on load
         startAutoplay();
     </script>
-    
 </body>
 </html>
